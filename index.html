@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viktoriya & Grégoire - Wedding</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤍</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -241,15 +241,23 @@
     .rsvp-deadline {
       font-family: var(--serif); font-size: 26px;
       color: var(--cream); letter-spacing: 0.03em;
-      margin-bottom: 40px; font-weight: 300;
+      margin-bottom: 8px; font-weight: 300;
+    }
+    .rsvp-reply-by {
+      font-family: var(--serif); font-size: 17px;
+      color: var(--cream); opacity: 0.8;
+      letter-spacing: 0.03em; margin-bottom: 36px;
+      font-style: italic;
     }
     .rsvp-form-card {
       background: var(--cream);
-      padding: 50px 54px;
+      padding: 40px 50px;
       max-width: 640px;
       border-radius: 8px 8px 0 0;
     }
-    .form-group { margin-bottom: 36px; }
+    .form-group { margin-bottom: 24px; }
+    .form-row { display: flex; gap: 16px; }
+    .form-half { flex: 1; }
     .form-group .field-label {
       display: block; font-family: var(--serif);
       font-size: 21px; font-weight: 600;
@@ -609,31 +617,34 @@
   <div class="rsvp-left">
     <div class="rsvp-title">RSVP</div>
     <div class="rsvp-deadline" data-i18n="rsvp_deadline">Saturday, June 26th 2027</div>
+    <div class="rsvp-reply-by" data-i18n="rsvp_replyby">Please reply by 31/12/2026</div>
     <div class="rsvp-form-card">
       <form action="#" method="POST">
-        <div class="form-group">
-          <span class="field-label" data-i18n="rsvp_names">Your names</span>
-          <input type="text" name="names" required>
-        </div>
-        <div class="form-group">
-          <span class="field-label" data-i18n="rsvp_email">Your email</span>
-          <input type="email" name="email">
+        <div class="form-group form-row">
+          <div class="form-half">
+            <span class="field-label" data-i18n="rsvp_firstname">First name</span>
+            <input type="text" name="firstname" required>
+          </div>
+          <div class="form-half">
+            <span class="field-label" data-i18n="rsvp_lastname">Last name</span>
+            <input type="text" name="lastname" required>
+          </div>
         </div>
         <div class="form-group">
           <span class="field-label" data-i18n="rsvp_address">Your postal address</span>
-          <input type="text" name="address">
+          <input type="text" name="address" autocomplete="street-address">
         </div>
         <div class="form-group">
           <span class="field-label" data-i18n="rsvp_attending">Will you be attending our wedding?</span>
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="attending" value="yes"> <span data-i18n="rsvp_accept">Joyfully accepts</span></label>
+            <label class="radio-option"><input type="radio" name="attending" value="yes" required> <span data-i18n="rsvp_accept">Joyfully accepts</span></label>
             <label class="radio-option"><input type="radio" name="attending" value="no"> <span data-i18n="rsvp_decline">Regretfully declines</span></label>
           </div>
         </div>
         <div class="form-group">
           <span class="field-label" data-i18n="rsvp_brunch">Will you be attending brunch on Sunday 27th?</span>
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="brunch" value="yes"> <span data-i18n="rsvp_yes">Yes</span></label>
+            <label class="radio-option"><input type="radio" name="brunch" value="yes" required> <span data-i18n="rsvp_yes">Yes</span></label>
             <label class="radio-option"><input type="radio" name="brunch" value="no"> <span data-i18n="rsvp_no">No</span></label>
           </div>
         </div>
@@ -647,6 +658,10 @@
         <div class="form-group dietary-slide" id="dietary-details">
           <span class="field-label" data-i18n="rsvp_specify">If yes, please specify them here.</span>
           <textarea rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <span class="field-label" data-i18n="rsvp_message">A word for the couple</span>
+          <textarea rows="3" name="message"></textarea>
         </div>
         <button type="submit" class="form-submit" data-i18n="rsvp_submit">Submit</button>
       </form>
@@ -689,13 +704,14 @@
         btn.disabled = true;
 
         var data = {
-          names: this.querySelector('input[name="names"]').value,
-          email: this.querySelector('input[name="email"]').value,
+          firstname: this.querySelector('input[name="firstname"]').value,
+          lastname: this.querySelector('input[name="lastname"]').value,
           address: this.querySelector('input[name="address"]').value,
           attending: (this.querySelector('input[name="attending"]:checked') || {}).value || '',
           brunch: (this.querySelector('input[name="brunch"]:checked') || {}).value || '',
           dietary: (this.querySelector('input[name="dietary"]:checked') || {}).value || '',
-          dietaryDetails: this.querySelector('textarea').value,
+          dietaryDetails: this.querySelector('#dietary-details textarea').value,
+          message: this.querySelector('textarea[name="message"]').value,
           lang: new URLSearchParams(window.location.search).get('lang') || 'en'
         };
 
@@ -719,6 +735,7 @@
             + '<button class="confirm-again" onclick="location.reload()">' + ct.btn + '</button>'
             + '</div>';
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth', block: 'start' });
         })
         .catch(function() {
           btn.textContent = ct.btn;
@@ -870,12 +887,15 @@ const T = {
     theday_title:"The Day",
     tl_ceremony:"ceremony", tl_drinks:"drinks", tl_dinner:"dinner", tl_cake:"cake cutting", tl_party:"party", tl_party_time:"12AM", tl_hometime:"hometime",
     rsvp_deadline:"Saturday, June 26th 2027",
-    rsvp_names:"Your names", rsvp_email:"Your email", rsvp_address:"Your postal address",
+    rsvp_replyby:"Please reply by 31/12/2026",
+    rsvp_firstname:"First name", rsvp_lastname:"Last name",
+    rsvp_address:"Your postal address",
     rsvp_attending:"Will you be attending our wedding?",
     rsvp_accept:"Joyfully accepts", rsvp_decline:"Regretfully declines",
     rsvp_brunch:"Will you be attending brunch on Sunday 27th?",
     rsvp_dietary:"Do you have any dietary requirements?", rsvp_no:"No", rsvp_yes:"Yes",
-    rsvp_specify:"If yes, please specify them here.", rsvp_submit:"Submit",
+    rsvp_specify:"If yes, please specify them here.",
+    rsvp_message:"A word for the couple", rsvp_submit:"Submit",
     details_title:"Other Details",
     det_directions_h:"Directions to venue:", det_directions_p:"For those driving to the venue, please use the area code 09967 for directions on Google.<br><br>Parking is available on site.",
     det_children_h:"Children:", det_children_p:"This event is adults-only.<br>We appreciate your understanding.",
@@ -896,12 +916,15 @@ const T = {
     theday_title:"Le Jour J",
     tl_ceremony:"cérémonie", tl_drinks:"cocktail", tl_dinner:"dîner", tl_cake:"gâteau", tl_party:"soirée", tl_party_time:"0h", tl_hometime:"départ",
     rsvp_deadline:"Samedi 26 juin 2027",
-    rsvp_names:"Vos noms", rsvp_email:"Votre email", rsvp_address:"Votre adresse postale",
+    rsvp_replyby:"Merci de répondre avant le 31/12/2026",
+    rsvp_firstname:"Prénom", rsvp_lastname:"Nom",
+    rsvp_address:"Votre adresse postale",
     rsvp_attending:"Serez-vous présents à notre mariage ?",
     rsvp_accept:"Accepte avec joie", rsvp_decline:"Décline avec regret",
     rsvp_brunch:"Serez-vous présents au brunch le dimanche 27 ?",
     rsvp_dietary:"Avez-vous des restrictions alimentaires ?", rsvp_no:"Non", rsvp_yes:"Oui",
-    rsvp_specify:"Si oui, merci de les préciser ici.", rsvp_submit:"Envoyer",
+    rsvp_specify:"Si oui, merci de les préciser ici.",
+    rsvp_message:"Un mot pour les mariés", rsvp_submit:"Envoyer",
     details_title:"Autres Détails",
     det_directions_h:"Accès au lieu :", det_directions_p:"Pour ceux qui viennent en voiture, utilisez le code postal 09967 pour le GPS.<br><br>Un parking est disponible sur place.",
     det_children_h:"Enfants :", det_children_p:"Cet événement est réservé aux adultes.<br>Merci de votre compréhension.",
@@ -922,12 +945,15 @@ const T = {
     theday_title:"Цей День",
     tl_ceremony:"церемонія", tl_drinks:"коктейль", tl_dinner:"вечеря", tl_cake:"торт", tl_party:"вечірка", tl_party_time:"0:00", tl_hometime:"додому",
     rsvp_deadline:"Субота, 26 червня 2027",
-    rsvp_names:"Ваші імена", rsvp_email:"Ваш email", rsvp_address:"Ваша поштова адреса",
+    rsvp_replyby:"Будь ласка, дайте відповідь до 31/12/2026",
+    rsvp_firstname:"Ім'я", rsvp_lastname:"Прізвище",
+    rsvp_address:"Ваша поштова адреса",
     rsvp_attending:"Чи будете ви присутні на нашому весіллі?",
     rsvp_accept:"З радістю приймає", rsvp_decline:"На жаль, відмовляє",
     rsvp_brunch:"Чи будете ви на бранчі в неділю 27-го?",
     rsvp_dietary:"Чи є у вас дієтичні обмеження?", rsvp_no:"Ні", rsvp_yes:"Так",
-    rsvp_specify:"Якщо так, будь ласка, вкажіть їх тут.", rsvp_submit:"Надіслати",
+    rsvp_specify:"Якщо так, будь ласка, вкажіть їх тут.",
+    rsvp_message:"Слово для молодят", rsvp_submit:"Надіслати",
     details_title:"Інші деталі",
     det_directions_h:"Як дістатися:", det_directions_p:"Для тих, хто їде на автомобілі, використовуйте поштовий індекс 09967 для навігації.<br><br>Парковка доступна на місці.",
     det_children_h:"Діти:", det_children_p:"Цей захід тільки для дорослих.<br>Дякуємо за розуміння.",
