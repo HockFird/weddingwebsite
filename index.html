@@ -892,13 +892,10 @@
   <div class="footer-text" data-i18n="footer_text">
     If you have any questions<br>
     please get in contact with us.<br>
+    Greg : <a href="tel:+33629855392" style="color:var(--cream)">+33 6 29 85 53 92</a> &amp; Vik : <a href="tel:+33621267367" style="color:var(--cream)">+33 6 21 26 73 67</a><br>
     We can't wait to celebrate with you
   </div>
   <div class="footer-names">Viktoriya &amp; Grégoire</div>
-  <div class="footer-phones">
-    Greg : <a href="tel:+33629855392">+33 6 29 85 53 92</a><br>
-    Vik : <a href="tel:+33621267367">+33 6 21 26 73 67</a>
-  </div>
   <div class="footer-copy">&copy; 2027 Viktoriya &amp; Grégoire</div>
 </section>
 
@@ -931,7 +928,7 @@ const T = {
     hotels_title:"Where to Stay Nearby", hotel_book:"Book here",
     gifts_title:"gifts", gifts_p1:"We're so grateful for your love and support as we celebrate our wedding day! If you'd like to honor us with a gift, we've created a registry to make things easier.",
     gifts_p2:"Please follow the link below to view our selections and choose something that feels right for you.", gifts_btn:"Gift Registry",
-    footer_text:"If you have any questions<br>please get in contact with us.<br>We can't wait to celebrate with you"
+    footer_text:"If you have any questions<br>please get in contact with us.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>We can't wait to celebrate with you"
   },
   fr: {
     nav_theday:"Le Jour J", nav_details:"Détails", nav_hotels:"Hôtels", nav_gifts:"Cadeaux",
@@ -960,7 +957,7 @@ const T = {
     hotels_title:"Où séjourner à proximité", hotel_book:"Réserver",
     gifts_title:"cadeaux", gifts_p1:"Nous sommes très reconnaissants de votre amour et soutien pour célébrer notre mariage ! Si vous souhaitez nous honorer d'un cadeau, nous avons créé une liste pour faciliter les choses.",
     gifts_p2:"Veuillez suivre le lien ci-dessous pour voir nos sélections et choisir ce qui vous convient.", gifts_btn:"Liste de cadeaux",
-    footer_text:"Si vous avez des questions<br>n'hésitez pas à nous contacter.<br>Nous avons hâte de fêter ça avec vous"
+    footer_text:"Si vous avez des questions<br>n'hésitez pas à nous contacter.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Nous avons hâte de fêter ça avec vous"
   },
   ua: {
     nav_theday:"Цей День", nav_details:"Деталі", nav_hotels:"Готелі", nav_gifts:"Подарунки",
@@ -989,7 +986,7 @@ const T = {
     hotels_title:"Де зупинитися поблизу", hotel_book:"Забронювати",
     gifts_title:"подарунки", gifts_p1:"Ми дуже вдячні за вашу любов і підтримку, коли ми святкуємо наше весілля! Якщо ви хочете подарувати нам подарунок, ми створили список, щоб полегшити вибір.",
     gifts_p2:"Будь ласка, перейдіть за посиланням нижче, щоб переглянути наш вибір і обрати те, що вам підходить.", gifts_btn:"Список подарунків",
-    footer_text:"Якщо у вас є запитання<br>будь ласка, зв'яжіться з нами.<br>Ми з нетерпінням чекаємо, щоб святкувати з вами"
+    footer_text:"Якщо у вас є запитання<br>будь ласка, зв'яжіться з нами.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Ми з нетерпінням чекаємо, щоб святкувати з вами"
   }
 };
 
@@ -1036,6 +1033,22 @@ document.addEventListener('click', e => {
 
 applyLang(getLang());
 </script>
+
+<script>
+function initAutocomplete() {
+  var input = document.querySelector('input[name="address"]');
+  var autocomplete = new google.maps.places.Autocomplete(input, {
+    types: ['address']
+  });
+  autocomplete.addListener('place_changed', function() {
+    var place = autocomplete.getPlace();
+    if (place.formatted_address) {
+      input.value = place.formatted_address;
+    }
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGP43AQtlq0DNTN_oQuPp-dWy3iW2HIQI&libraries=places&callback=initAutocomplete" async defer></script>
 
 </body>
 </html>
