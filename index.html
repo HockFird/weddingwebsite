@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viktoriya & Grégoire</title>
+  <title>Sophie & James - Wedding</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --green: #425440;
       --cream: #fcf5ea;
@@ -17,511 +16,393 @@
       --serif: 'Cormorant Garamond', 'Georgia', serif;
       --script: 'Great Vibes', cursive;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: var(--serif); color: var(--green); background: var(--cream); -webkit-font-smoothing: antialiased; }
 
-    body {
-      font-family: var(--serif);
-      color: var(--green);
-      background: var(--cream);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
+    /* ─── NAV ─── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: var(--green);
-      padding: 18px 0;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 36px;
-      flex-wrap: wrap;
+      padding: 20px 40px;
+      display: flex; justify-content: flex-end; gap: 36px;
     }
     nav a {
-      color: var(--white);
-      text-decoration: none;
-      font-family: var(--serif);
-      font-size: 15px;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: opacity 0.3s;
+      color: var(--white); text-decoration: none;
+      font-family: var(--serif); font-size: 15px; font-weight: 400;
+      letter-spacing: 0.06em; transition: opacity 0.3s;
     }
     nav a:hover { opacity: 0.7; }
 
-    /* ── SECTION BASES ── */
-    .section-green {
-      background: var(--green);
-      color: var(--cream);
-    }
-    .section-cream {
-      background: var(--cream);
-      color: var(--green);
-    }
-    .section-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 100px 40px;
-    }
-    .text-center { text-align: center; }
-
-    /* ── HERO ── */
+    /* ─── HERO ─── */
     #hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; background: var(--green);
     }
     .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(66,84,64,0.55), rgba(66,84,64,0.55)),
-        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80') center/cover no-repeat;
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80') center/cover no-repeat;
+      opacity: 0.45;
     }
     .hero-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 40px;
+      position: relative; z-index: 1; text-align: center; padding: 40px;
     }
     .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(64px, 12vw, 150px);
-      font-weight: 300;
-      text-transform: uppercase;
-      color: var(--cream);
-      line-height: 1.05;
-      letter-spacing: 0.02em;
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(72px, 14vw, 160px);
+      text-transform: uppercase; color: var(--cream);
+      line-height: 0.95; letter-spacing: 0.02em;
     }
     .hero-and {
       font-family: var(--script);
-      font-size: clamp(48px, 8vw, 120px);
-      color: var(--cream);
-      line-height: 1.4;
-      font-weight: 400;
+      font-size: clamp(56px, 10vw, 140px);
+      color: var(--cream); line-height: 1.1;
     }
     .hero-subtitle {
-      font-family: var(--serif);
-      font-size: clamp(14px, 2.5vw, 22px);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--cream);
-      margin-top: 30px;
-      font-weight: 400;
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(14px, 2.5vw, 20px);
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--cream); margin-top: 32px;
     }
 
-    /* ── DATE & VENUE ── */
-    #date .section-inner {
-      padding-top: 80px;
-      padding-bottom: 80px;
+    /* ─── DATE ─── */
+    #date { background: var(--cream); }
+    .date-layout {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 80vh; padding: 80px 40px; gap: 60px;
+    }
+    .date-photo-frame {
+      flex: 0 0 auto; position: relative;
+      border: 3px solid var(--green); padding: 24px;
+      width: 420px; max-width: 45%;
+    }
+    .date-photo-frame::before {
+      content: ''; position: absolute;
+      inset: 8px; border: 1px solid var(--green);
     }
     .date-photo {
-      width: 55%;
-      max-width: 480px;
-      aspect-ratio: 3/4;
-      margin: 0 auto 60px;
-      background:
-        linear-gradient(135deg, rgba(66,84,64,0.1), rgba(66,84,64,0.05)),
-        url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80') center/cover no-repeat;
-      display: block;
+      width: 100%; aspect-ratio: 3/4;
+      background: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80') center/cover no-repeat;
+      filter: grayscale(100%);
     }
-    .date-card {
-      background: var(--cream);
-      padding: 50px 40px;
-      text-align: center;
-      max-width: 580px;
-      margin: 0 auto;
-    }
+    .date-text { text-align: center; flex: 0 1 auto; }
     .date-script {
       font-family: var(--script);
-      font-size: clamp(36px, 6vw, 72px);
-      color: var(--green);
-      line-height: 1.2;
+      font-size: clamp(40px, 7vw, 80px);
+      color: var(--green); line-height: 1.1;
     }
     .date-at {
       font-family: var(--script);
-      font-size: clamp(24px, 4vw, 48px);
-      color: var(--green);
-      margin: 10px 0;
+      font-size: clamp(28px, 4vw, 52px);
+      color: var(--green); margin: 4px 0;
     }
     .date-venue {
-      font-family: var(--serif);
-      font-size: clamp(18px, 3vw, 32px);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(24px, 4vw, 48px);
+      text-transform: uppercase; letter-spacing: 0.04em;
       color: var(--green);
-      font-weight: 400;
     }
 
-    /* ── OUR STORY ── */
-    #story .story-title {
-      font-family: var(--script);
-      font-size: clamp(40px, 7vw, 80px);
-      margin-bottom: 12px;
+    /* ─── OUR SPECIAL DAY ─── */
+    #story {
+      position: relative; overflow: hidden;
+      background: var(--green);
     }
-    #story .story-heading {
-      font-family: var(--serif);
-      font-size: clamp(16px, 2.5vw, 22px);
-      margin-bottom: 40px;
-      letter-spacing: 0.04em;
+    .story-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&q=80') center/cover no-repeat;
+      opacity: 0.45;
     }
-    #story .story-body {
-      font-size: clamp(16px, 1.8vw, 19px);
-      line-height: 1.8;
-      max-width: 640px;
-      margin: 0 auto;
-      letter-spacing: 0.03em;
+    .story-inner {
+      position: relative; z-index: 1;
+      padding: 100px 40px; text-align: center;
     }
-    #story .story-sign {
-      font-family: var(--script);
-      font-size: clamp(28px, 4vw, 44px);
-      margin-top: 40px;
-    }
-
-    /* ── STORY BOX ── */
     .story-box {
-      background: rgba(66,84,64,0.7);
-      padding: 60px 50px;
-      max-width: 720px;
-      margin: 0 auto;
+      background: rgba(66,84,64,0.75);
+      max-width: 860px; margin: 0 auto;
+      padding: 70px 60px;
+    }
+    .story-title {
+      font-family: var(--script);
+      font-size: clamp(48px, 8vw, 88px);
+      color: var(--cream); margin-bottom: 24px;
+    }
+    .story-heading {
+      font-family: var(--script);
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--cream); margin-bottom: 16px;
+    }
+    .story-body {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: var(--cream); line-height: 1.7;
+      letter-spacing: 0.03em;
+      max-width: 600px; margin: 0 auto;
+    }
+    .story-sign {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: var(--cream); margin-top: 36px;
+    }
+    .story-names {
+      font-family: var(--script);
+      font-size: clamp(32px, 5vw, 50px);
+      color: var(--cream); margin-top: 16px;
     }
 
-    /* ── THE DAY ── */
-    #theday .section-inner { padding-bottom: 80px; }
+    /* ─── THE DAY ─── */
+    #theday { background: var(--cream); padding: 100px 40px; text-align: center; }
     .theday-title {
-      font-family: var(--serif);
-      font-size: clamp(40px, 7vw, 72px);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      font-weight: 300;
-      margin-bottom: 60px;
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(48px, 8vw, 80px);
+      text-transform: uppercase; letter-spacing: 0.02em;
+      margin-bottom: 70px;
     }
     .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      display: flex; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+      max-width: 1100px; margin: 0 auto;
     }
-    @media (max-width: 700px) {
-      .timeline { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .timeline { grid-template-columns: 1fr; }
-    }
-    .timeline-card {
-      background: var(--cream);
-      padding: 32px 20px;
-      text-align: center;
+    .timeline-item {
+      flex: 0 0 auto; width: 140px; text-align: center;
     }
     .timeline-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-      display: block;
-      opacity: 0.7;
+      width: 100px; height: 100px;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .timeline-icon svg {
+      width: 80px; height: 80px;
+      stroke: var(--green); fill: none;
+      stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round;
     }
     .timeline-time {
-      font-family: var(--serif);
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--green);
-      margin-bottom: 8px;
-      font-weight: 600;
+      font-family: var(--serif); font-size: 18px;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      font-weight: 500; margin-bottom: 6px;
     }
     .timeline-label {
       font-family: var(--script);
-      font-size: 32px;
-      color: var(--green);
-    }
-    .day-label {
-      font-family: var(--serif);
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--green);
-      opacity: 0.6;
-      margin-bottom: 6px;
-      font-weight: 600;
+      font-size: 34px; color: var(--green);
     }
 
-    /* ── RSVP ── */
-    #rsvp .rsvp-header {
-      max-width: 580px;
-      margin: 0 auto 50px;
+    /* ─── RSVP ─── */
+    #rsvp {
       background: var(--green);
-      padding: 20px 40px;
-      text-align: center;
+      display: flex; min-height: 90vh;
+    }
+    .rsvp-left {
+      flex: 1; padding: 80px 60px; color: var(--cream);
+    }
+    .rsvp-right {
+      flex: 0 0 45%; position: relative; overflow: hidden;
+    }
+    .rsvp-stripes {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--cream) 0px, var(--cream) 30px,
+        var(--green) 30px, var(--green) 36px
+      );
+      opacity: 0.6;
     }
     .rsvp-title {
-      font-family: var(--serif);
-      font-size: clamp(48px, 7vw, 72px);
-      font-weight: 300;
-      color: var(--white);
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(56px, 8vw, 96px);
+      color: var(--cream); margin-bottom: 8px;
     }
     .rsvp-deadline {
-      font-family: var(--serif);
-      font-size: 16px;
-      color: var(--white);
-      letter-spacing: 0.04em;
-      margin-top: 8px;
+      font-family: var(--serif); font-size: 18px;
+      color: var(--cream); letter-spacing: 0.03em;
+      margin-bottom: 50px;
     }
-    .rsvp-form {
-      max-width: 560px;
-      margin: 0 auto;
-    }
-    .form-group {
-      margin-bottom: 24px;
-    }
+    .form-group { margin-bottom: 28px; }
     .form-group label {
-      display: block;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-      color: var(--cream);
-      font-weight: 600;
+      display: block; font-family: var(--serif);
+      font-size: 18px; font-weight: 600;
+      margin-bottom: 12px; color: var(--cream);
     }
     .form-group input,
-    .form-group select,
     .form-group textarea {
-      width: 100%;
+      width: 100%; max-width: 460px;
       padding: 14px 16px;
-      border: 1px solid rgba(252,245,234,0.3);
-      background: rgba(252,245,234,0.08);
-      color: var(--cream);
-      font-family: var(--serif);
-      font-size: 16px;
-      outline: none;
+      border: 1px solid rgba(252,245,234,0.25);
+      background: rgba(252,245,234,0.06);
+      color: var(--cream); font-family: var(--serif);
+      font-size: 16px; outline: none;
       transition: border-color 0.3s;
     }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(252,245,234,0.4);
-    }
     .form-group input:focus,
-    .form-group select:focus,
     .form-group textarea:focus {
       border-color: var(--cream);
     }
-    .form-group select {
-      appearance: none;
-      cursor: pointer;
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(252,245,234,0.35);
     }
-    .form-group select option {
-      background: var(--green);
-      color: var(--cream);
+    .radio-group { display: flex; flex-direction: column; gap: 8px; }
+    .radio-option {
+      display: block; padding: 14px 16px;
+      background: rgba(252,245,234,0.12);
+      color: var(--cream); font-family: var(--serif);
+      font-size: 16px; cursor: pointer;
+      max-width: 460px; transition: background 0.2s;
     }
+    .radio-option:hover { background: rgba(252,245,234,0.18); }
+    .radio-option input { margin-right: 10px; accent-color: var(--cream); }
     .form-submit {
-      display: inline-block;
-      padding: 14px 48px;
-      background: var(--cream);
-      color: var(--green);
-      font-family: var(--serif);
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.3s;
-      font-weight: 600;
+      display: inline-block; padding: 14px 48px;
+      background: var(--cream); color: var(--green);
+      font-family: var(--serif); font-size: 16px;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      border: none; cursor: pointer; font-weight: 600;
+      margin-top: 12px; transition: opacity 0.3s;
     }
     .form-submit:hover { opacity: 0.85; }
 
-    /* ── DETAILS ── */
-    #details .details-title {
+    /* ─── DETAILS ─── */
+    #details { background: var(--cream); padding: 80px 40px; }
+    .details-inner { max-width: 1000px; margin: 0 auto; }
+    .details-title {
       font-family: var(--script);
-      font-size: clamp(48px, 8vw, 96px);
-      margin-bottom: 60px;
+      font-size: clamp(56px, 10vw, 110px);
+      text-align: right; margin-bottom: 60px;
     }
     .details-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      max-width: 560px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 50px 80px;
     }
-    .detail-card {
-      background: var(--cream);
-      padding: 36px 40px;
+    .detail-block { text-align: center; }
+    .detail-block h3 {
+      font-family: var(--serif); font-weight: 700;
+      font-size: 17px; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 16px;
     }
-    .detail-card h3 {
-      font-family: var(--serif);
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--green);
-    }
-    .detail-card p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--green);
-      letter-spacing: 0.02em;
+    .detail-block p {
+      font-family: var(--serif); font-size: 17px;
+      line-height: 1.7; letter-spacing: 0.02em;
     }
     .color-dots {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 20px;
+      display: flex; gap: 14px;
+      justify-content: center; margin-top: 24px;
     }
-    .color-dot {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-    }
+    .color-dot { width: 40px; height: 40px; border-radius: 50%; }
 
-    /* ── HOTELS ── */
+    /* ─── HOTELS ─── */
     #hotels {
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
+      background: var(--green);
     }
-    #hotels .hotel-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(66,84,64,0.6), rgba(66,84,64,0.6)),
-        url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&q=80') center/cover no-repeat;
+    .hotels-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&q=80') center/cover no-repeat;
+      opacity: 0.4;
     }
-    #hotels .section-inner {
-      position: relative;
-      z-index: 1;
+    .hotels-inner {
+      position: relative; z-index: 1;
+      padding: 100px 40px; text-align: center;
     }
     .hotels-title {
-      font-family: var(--serif);
-      font-size: clamp(32px, 6vw, 64px);
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      font-weight: 300;
-      margin-bottom: 60px;
-      color: var(--cream);
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(36px, 7vw, 72px);
+      text-transform: uppercase; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 60px;
     }
     .hotels-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 420px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; max-width: 1000px; margin: 0 auto;
     }
     .hotel-card {
-      text-align: center;
+      background: rgba(66,84,64,0.85);
+      padding: 40px 28px; text-align: center;
     }
     .hotel-name {
-      font-family: var(--serif);
-      font-size: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
-    .hotel-inner {
-      background: rgba(66,84,64,0.85);
-      padding: 30px;
+      font-family: var(--serif); font-weight: 400;
+      font-size: 18px; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--white);
+      margin-bottom: 24px;
     }
     .hotel-info {
-      font-size: 16px;
-      color: var(--cream);
-      line-height: 1.7;
-      margin-bottom: 20px;
+      font-family: var(--serif); font-size: 16px;
+      color: var(--cream); line-height: 1.7;
+      margin-bottom: 28px;
     }
     .hotel-btn {
-      display: inline-block;
-      padding: 10px 36px;
-      background: var(--cream);
-      color: var(--green);
-      text-decoration: none;
-      font-family: var(--serif);
-      font-size: 15px;
-      letter-spacing: 0.04em;
+      display: inline-block; padding: 10px 40px;
+      background: var(--cream); color: var(--green);
+      text-decoration: none; font-family: var(--serif);
+      font-size: 15px; letter-spacing: 0.04em;
       transition: opacity 0.3s;
     }
     .hotel-btn:hover { opacity: 0.85; }
 
-    /* ── GIFTS ── */
-    #gifts .gifts-title {
+    /* ─── GIFTS ─── */
+    #gifts { background: var(--cream); padding: 80px 40px; text-align: center; }
+    .gifts-frame {
+      max-width: 800px; margin: 0 auto;
+      border: 4px solid var(--green); padding: 20px;
+      position: relative;
+    }
+    .gifts-frame::before {
+      content: ''; position: absolute;
+      inset: 8px; border: 1px solid var(--green);
+    }
+    .gifts-content {
+      position: relative; z-index: 1;
+      padding: 60px 50px;
+    }
+    .gifts-title {
       font-family: var(--script);
-      font-size: clamp(48px, 8vw, 96px);
-      margin-bottom: 50px;
+      font-size: clamp(56px, 8vw, 96px);
+      margin-bottom: 40px;
     }
-    .gifts-box {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .gifts-outer {
-      background: var(--green);
-      padding: 20px;
-    }
-    .gifts-inner {
-      background: var(--cream);
-      padding: 50px 40px;
-      text-align: center;
-    }
-    .gifts-inner p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--green);
-      letter-spacing: 0.03em;
-      margin-bottom: 30px;
+    .gifts-content p {
+      font-family: var(--serif); font-size: 18px;
+      line-height: 1.7; color: var(--green);
+      max-width: 540px; margin: 0 auto 24px;
     }
     .gifts-btn {
-      display: inline-block;
-      padding: 12px 40px;
-      background: var(--green);
-      color: var(--white);
-      text-decoration: none;
-      font-family: var(--serif);
-      font-size: 15px;
-      letter-spacing: 0.04em;
-      transition: opacity 0.3s;
+      display: inline-block; padding: 16px 48px;
+      background: var(--green); color: var(--white);
+      text-decoration: none; font-family: var(--serif);
+      font-size: 16px; letter-spacing: 0.04em;
+      margin-top: 20px; transition: opacity 0.3s;
     }
     .gifts-btn:hover { opacity: 0.85; }
 
-    /* ── FOOTER ── */
-    #footer .footer-box {
-      background: var(--green);
-      padding: 50px 40px;
-      max-width: 700px;
-      margin: 0 auto;
+    /* ─── FOOTER ─── */
+    #footer {
+      background: var(--green); padding: 100px 40px;
       text-align: center;
     }
     .footer-text {
-      font-size: 17px;
-      color: var(--cream);
-      line-height: 1.8;
-      margin-bottom: 24px;
+      font-family: var(--serif); font-size: 18px;
+      color: var(--cream); line-height: 1.8;
+      margin-bottom: 28px;
     }
     .footer-names {
       font-family: var(--script);
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(32px, 5vw, 48px);
       color: var(--cream);
     }
 
-    /* ── SEPARATOR ICONS ── */
-    .sep {
-      text-align: center;
-      padding: 20px 0;
-      font-size: 24px;
-      opacity: 0.3;
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .date-layout { flex-direction: column; gap: 40px; }
+      .date-photo-frame { max-width: 80%; width: 360px; }
+      .details-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hotels-grid { grid-template-columns: 1fr; max-width: 360px; }
+      #rsvp { flex-direction: column; }
+      .rsvp-right { flex: 0 0 200px; }
     }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      nav ul { gap: 16px; padding: 0 16px; }
-      nav a { font-size: 12px; letter-spacing: 0.08em; }
-      .section-inner { padding: 70px 24px; }
-      .date-photo { width: 80%; }
+      nav { padding: 16px 20px; gap: 18px; flex-wrap: wrap; }
+      nav a { font-size: 12px; }
       .story-box { padding: 40px 28px; }
-      .detail-card { padding: 28px 24px; }
-      .gifts-inner { padding: 36px 24px; }
-      .hotel-inner { padding: 24px; }
+      .gifts-content { padding: 40px 24px; }
+      .rsvp-left { padding: 60px 24px; }
+      .timeline { gap: 24px; }
+      .timeline-item { width: 120px; }
     }
   </style>
 </head>
@@ -529,206 +410,233 @@
 
 <!-- NAV -->
 <nav>
-  <ul>
-    <li><a href="#theday">Le Jour</a></li>
-    <li><a href="#rsvp">RSVP</a></li>
-    <li><a href="#details">Détails</a></li>
-    <li><a href="#hotels">Hôtels</a></li>
-    <li><a href="#gifts">Cadeaux</a></li>
-  </ul>
+  <a href="#theday">The Day</a>
+  <a href="#rsvp">RSVP</a>
+  <a href="#details">Details</a>
+  <a href="#hotels">Hotels</a>
+  <a href="#gifts">Gifts</a>
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="section-green">
+<section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-name">Viktoriya</div>
-    <div class="hero-and">et</div>
-    <div class="hero-name">Grégoire</div>
-    <div class="hero-subtitle">se marient !</div>
+    <div class="hero-name">Sophie</div>
+    <div class="hero-and">and</div>
+    <div class="hero-name">James</div>
+    <div class="hero-subtitle">are getting married!</div>
   </div>
 </section>
 
 <!-- DATE & VENUE -->
-<section id="date" class="section-cream">
-  <div class="section-inner text-center">
-    <div class="date-photo"></div>
-    <div class="date-card">
-      <div class="date-script">25 &amp; 26 Juin</div>
-      <div class="date-at">à</div>
-      <div class="date-venue">Saint-Tropez</div>
+<section id="date">
+  <div class="date-layout">
+    <div class="date-photo-frame">
+      <div class="date-photo"></div>
+    </div>
+    <div class="date-text">
+      <div class="date-script">September 1st</div>
+      <div class="date-at">at</div>
+      <div class="date-venue">Baolu House</div>
     </div>
   </div>
 </section>
 
-<!-- OUR STORY -->
-<section id="story" class="section-green">
-  <div class="section-inner text-center">
+<!-- OUR SPECIAL DAY -->
+<section id="story">
+  <div class="story-bg"></div>
+  <div class="story-inner">
     <div class="story-box">
-      <div class="story-title">Notre histoire</div>
-      <div class="story-heading">Viktoriya et Grégoire</div>
+      <div class="story-title">Our special day</div>
+      <div class="story-heading">Sophie and James</div>
       <div class="story-body">
-        Nous sommes si heureux de célébrer ce moment si spécial
-        de nos vies avec nos proches.<br><br>
-        Votre amour et votre soutien comptent énormément pour nous,
-        et nous avons hâte de partager ces journées inoubliables avec vous.<br><br>
-        Nous avons créé ce site pour vous tenir informés de tous les détails
-        au fur et à mesure que le grand jour approche.<br><br>
-        Merci de faire partie de notre voyage.
+        We are so excited to celebrate this special moment in our lives with
+        our closest family and friends.<br>
+        Your love and support means the world to us,
+        and we can't wait to share this unforgettable day with you.<br><br>
+        As we count down to our big day,
+        we've created this website to keep you updated on all the details.<br><br>
+        Thank you for being a part of our journey.<br>
+        We can't wait to celebrate with you!
       </div>
-      <div class="story-sign">Avec amour, V &amp; G</div>
+      <div class="story-sign">With love,</div>
+      <div class="story-names">Sophie and James</div>
     </div>
   </div>
 </section>
 
 <!-- THE DAY -->
-<section id="theday" class="section-cream">
-  <div class="section-inner text-center">
-    <div class="theday-title">Le Programme</div>
-
-    <div class="day-label">Vendredi 25 Juin</div>
-    <div class="timeline" style="margin-bottom: 48px;">
-      <div class="timeline-card">
-        <span class="timeline-icon">🏛</span>
-        <div class="timeline-time">15h00</div>
-        <div class="timeline-label">mairie</div>
+<section id="theday">
+  <div class="theday-title">The Day</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <svg viewBox="0 0 80 80">
+          <ellipse cx="28" cy="42" rx="20" ry="14" transform="rotate(-15 28 42)"/>
+          <ellipse cx="52" cy="42" rx="20" ry="14" transform="rotate(15 52 42)"/>
+          <circle cx="40" cy="62" r="3"/>
+        </svg>
       </div>
-      <div class="timeline-card">
-        <span class="timeline-icon">🥂</span>
-        <div class="timeline-time">16h30</div>
-        <div class="timeline-label">cocktail</div>
-      </div>
-      <div class="timeline-card">
-        <span class="timeline-icon">🍽</span>
-        <div class="timeline-time">20h00</div>
-        <div class="timeline-label">dîner</div>
-      </div>
+      <div class="timeline-time">1PM</div>
+      <div class="timeline-label">ceremony</div>
     </div>
-
-    <div class="day-label">Samedi 26 Juin</div>
-    <div class="timeline">
-      <div class="timeline-card">
-        <span class="timeline-icon">⛪</span>
-        <div class="timeline-time">14h00</div>
-        <div class="timeline-label">cérémonie</div>
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <svg viewBox="0 0 80 80">
+          <path d="M30 70 L30 40 Q30 20 40 10 Q50 20 50 40 L50 70"/>
+          <line x1="26" y1="70" x2="54" y2="70"/>
+          <path d="M36 40 Q32 36 34 30"/>
+          <path d="M38 14 Q36 8 38 4"/>
+          <path d="M42 14 Q44 8 42 4"/>
+        </svg>
       </div>
-      <div class="timeline-card">
-        <span class="timeline-icon">🍸</span>
-        <div class="timeline-time">16h00</div>
-        <div class="timeline-label">cocktail</div>
+      <div class="timeline-time">2PM</div>
+      <div class="timeline-label">drinks</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <svg viewBox="0 0 80 80">
+          <rect x="20" y="50" width="40" height="14" rx="2"/>
+          <rect x="24" y="36" width="32" height="14" rx="2"/>
+          <rect x="28" y="22" width="24" height="14" rx="2"/>
+          <line x1="40" y1="22" x2="40" y2="12"/>
+          <circle cx="40" cy="10" r="3"/>
+          <circle cx="30" cy="44" r="2"/><circle cx="40" cy="57" r="2"/><circle cx="50" cy="44" r="2"/>
+          <line x1="16" y1="64" x2="64" y2="64"/>
+        </svg>
       </div>
-      <div class="timeline-card">
-        <span class="timeline-icon">🎂</span>
-        <div class="timeline-time">17h30</div>
-        <div class="timeline-label">gâteau</div>
+      <div class="timeline-time">4PM</div>
+      <div class="timeline-label">cake cutting</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <svg viewBox="0 0 80 80">
+          <circle cx="40" cy="48" r="22"/>
+          <ellipse cx="40" cy="68" rx="16" ry="4"/>
+          <circle cx="34" cy="44" r="3"/><circle cx="46" cy="44" r="3"/>
+          <path d="M30 38 Q36 32 40 28 Q44 32 50 38"/>
+          <line x1="40" y1="28" x2="40" y2="22"/>
+          <circle cx="36" cy="18" r="4"/><circle cx="44" cy="16" r="3"/>
+        </svg>
       </div>
-      <div class="timeline-card">
-        <span class="timeline-icon">🍷</span>
-        <div class="timeline-time">20h00</div>
-        <div class="timeline-label">dîner</div>
+      <div class="timeline-time">6PM</div>
+      <div class="timeline-label">dinner</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <svg viewBox="0 0 80 80">
+          <path d="M22 70 L22 40 Q22 20 32 12"/>
+          <path d="M58 70 L58 40 Q58 20 48 12"/>
+          <line x1="18" y1="70" x2="26" y2="70"/>
+          <line x1="54" y1="70" x2="62" y2="70"/>
+          <circle cx="36" cy="8" r="2"/><circle cx="44" cy="6" r="1.5"/>
+          <line x1="50" y1="14" x2="54" y2="10"/>
+          <line x1="56" y1="18" x2="60" y2="16"/>
+          <line x1="52" y1="8" x2="54" y2="4"/>
+        </svg>
       </div>
-      <div class="timeline-card">
-        <span class="timeline-icon">🎶</span>
-        <div class="timeline-time">23h00</div>
-        <div class="timeline-label">soirée</div>
+      <div class="timeline-time">8PM</div>
+      <div class="timeline-label">party</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <svg viewBox="0 0 80 80">
+          <rect x="12" y="36" width="56" height="28" rx="6"/>
+          <circle cx="22" cy="64" r="6"/><circle cx="58" cy="64" r="6"/>
+          <line x1="12" y1="50" x2="68" y2="50"/>
+          <path d="M30 36 Q30 24 40 20 Q50 24 50 36"/>
+          <circle cx="40" cy="16" r="4"/>
+          <path d="M36 14 Q34 8 30 6"/>
+          <path d="M44 14 Q46 8 50 6"/>
+        </svg>
       </div>
-      <div class="timeline-card">
-        <span class="timeline-icon">🌙</span>
-        <div class="timeline-time">02h00</div>
-        <div class="timeline-label">bonne nuit</div>
-      </div>
+      <div class="timeline-time">12AM</div>
+      <div class="timeline-label">hometime</div>
     </div>
   </div>
 </section>
 
 <!-- RSVP -->
-<section id="rsvp" class="section-green">
-  <div class="section-inner text-center">
-    <div class="rsvp-header">
-      <div class="rsvp-title">RSVP</div>
-      <div class="rsvp-deadline">Merci de répondre avant le 1er mai.</div>
-    </div>
-    <form class="rsvp-form" action="#" method="POST">
+<section id="rsvp">
+  <div class="rsvp-left">
+    <div class="rsvp-title">RSVP</div>
+    <div class="rsvp-deadline">Please reply by June 1st 2028.</div>
+    <form action="#" method="POST">
       <div class="form-group">
-        <label>Nom complet</label>
-        <input type="text" placeholder="Prénom et nom" required>
+        <label>Your names</label>
+        <input type="text" required>
       </div>
       <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="votre@email.com" required>
+        <label>Will you be attending our wedding?</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="attending" value="yes"> Joyfully accepts</label>
+          <label class="radio-option"><input type="radio" name="attending" value="no"> Regretfully declines</label>
+        </div>
       </div>
       <div class="form-group">
-        <label>Présence</label>
-        <select required>
-          <option value="" disabled selected>Choisir...</option>
-          <option value="yes">J'y serai avec joie</option>
-          <option value="no">Je ne pourrai malheureusement pas venir</option>
-        </select>
+        <label>Do you have any dietary requirements?</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="dietary" value="no"> No</label>
+          <label class="radio-option"><input type="radio" name="dietary" value="yes"> Yes</label>
+        </div>
       </div>
       <div class="form-group">
-        <label>Nombre d'invités</label>
-        <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
+        <label>If yes, please specify</label>
+        <textarea rows="3"></textarea>
       </div>
-      <div class="form-group">
-        <label>Restrictions alimentaires</label>
-        <textarea rows="3" placeholder="Allergies, régime..."></textarea>
-      </div>
-      <div class="form-group">
-        <label>Un petit mot ?</label>
-        <textarea rows="3" placeholder="Votre message pour les mariés..."></textarea>
-      </div>
-      <button type="submit" class="form-submit">Envoyer</button>
+      <button type="submit" class="form-submit">Send</button>
     </form>
+  </div>
+  <div class="rsvp-right">
+    <div class="rsvp-stripes"></div>
   </div>
 </section>
 
 <!-- DETAILS -->
-<section id="details" class="section-cream">
-  <div class="section-inner text-center">
-    <div class="details-title">Informations</div>
+<section id="details">
+  <div class="details-inner">
+    <div class="details-title">Other Details</div>
     <div class="details-grid">
-      <div class="detail-card">
-        <h3>Cérémonie civile</h3>
+      <div class="detail-block">
+        <h3>Directions to venue:</h3>
         <p>
-          Mairie de Saint-Tropez<br>
-          Place de l'Hôtel de Ville<br>
-          83990 Saint-Tropez
+          For those driving to the venue, please use the
+          area code 09967 for directions on Google.<br><br>
+          Parking is available in site.
         </p>
       </div>
-      <div class="detail-card">
-        <h3>Cérémonie religieuse &amp; réception</h3>
+      <div class="detail-block">
+        <h3>Children:</h3>
         <p>
-          74 chemin de Valfère<br>
-          83990 Saint-Tropez
+          This event is adults-only.<br>
+          We appreciate your understanding.
         </p>
       </div>
-      <div class="detail-card">
-        <h3>Dress code</h3>
+      <div class="detail-block">
+        <h3>Public Transport/Taxis:</h3>
         <p>
-          Tenue cocktail ou semi-formelle.<br>
-          Pour le cocktail, n'hésitez pas à jouer avec
-          des tons doux et estivaux.
+          Public transport is limited in the area,
+          but taxis from the nearest town are available.<br>
+          Local taxis: Cabcompany: 01234567891.<br><br>
+          We recommend booking in advance.
+        </p>
+      </div>
+      <div class="detail-block">
+        <h3>Dress Code:</h3>
+        <p>
+          We kindly ask guests to wear cocktail or
+          semi formal attire.<br><br>
+          For the welcome drinks, feel free to lean
+          into softer tones like pink, yellow, orange,
+          navy, or blue.
         </p>
         <div class="color-dots">
           <span class="color-dot" style="background:#ddbaba"></span>
           <span class="color-dot" style="background:#d4a978"></span>
           <span class="color-dot" style="background:#e6d89f"></span>
+          <span class="color-dot" style="background:#020c45"></span>
           <span class="color-dot" style="background:#8799b4"></span>
-          <span class="color-dot" style="background:#a8c3a0"></span>
         </div>
-      </div>
-      <div class="detail-card">
-        <h3>Transports</h3>
-        <p>
-          Un parking est disponible sur place.<br><br>
-          Pour ceux venant de loin, des navettes
-          seront organisées depuis le centre-ville.
-        </p>
       </div>
     </div>
   </div>
@@ -736,82 +644,77 @@
 
 <!-- HOTELS -->
 <section id="hotels">
-  <div class="hotel-bg"></div>
-  <div class="section-inner text-center">
-    <div class="hotels-title">Où séjourner</div>
+  <div class="hotels-bg"></div>
+  <div class="hotels-inner">
+    <div class="hotels-title">Where to Stay Nearby</div>
     <div class="hotels-grid">
       <div class="hotel-card">
-        <div class="hotel-name">Hôtel de Paris</div>
-        <div class="hotel-inner">
-          <div class="hotel-info">
-            Place du Lices, Saint-Tropez<br><br>
-            Un hôtel de charme au cœur
-            du village, à 5 minutes du lieu de réception.
-          </div>
-          <a href="#" class="hotel-btn">Réserver</a>
+        <div class="hotel-name">Hotel Premezzo</div>
+        <div class="hotel-info">
+          Via Regina 0, 99019<br>
+          Tremezzo, Lombardia<br><br>
+          A boutique hotel that
+          marries modern luxury
+          with timeless elegance.<br>
+          A 2 min walk to the venue
         </div>
+        <a href="#" class="hotel-btn">Book here</a>
       </div>
       <div class="hotel-card">
-        <div class="hotel-name">La Bastide</div>
-        <div class="hotel-inner">
-          <div class="hotel-info">
-            Route des Carles, Saint-Tropez<br><br>
-            Bastide provençale entourée de vignes,
-            à 10 minutes en voiture.
-          </div>
-          <a href="#" class="hotel-btn">Réserver</a>
+        <div class="hotel-name">Villa d'Este</div>
+        <div class="hotel-info">
+          Via Regina 40, 22012<br>
+          Cernobbio, Lombardia<br><br>
+          A boutique hotel that
+          marries modern luxury
+          with timeless elegance.<br>
+          A 5 min walk to the venue
         </div>
+        <a href="#" class="hotel-btn">Book here</a>
       </div>
       <div class="hotel-card">
-        <div class="hotel-name">Résidence du Port</div>
-        <div class="hotel-inner">
-          <div class="hotel-info">
-            Quai Suffren, Saint-Tropez<br><br>
-            Vue sur le port, idéal pour prolonger
-            le séjour. À 15 minutes du lieu.
-          </div>
-          <a href="#" class="hotel-btn">Réserver</a>
+        <div class="hotel-name">Hotel d'Gina</div>
+        <div class="hotel-info">
+          Via Regina 40, 22012<br>
+          Cernobbio, Lombardia<br><br>
+          A boutique hotel that
+          marries modern luxury
+          with timeless elegance.<br>
+          A 15 min walk to the venue
         </div>
+        <a href="#" class="hotel-btn">Book here</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GIFTS -->
-<section id="gifts" class="section-cream">
-  <div class="section-inner text-center">
-    <div class="gifts-title">Cadeaux</div>
-    <div class="gifts-box">
-      <div class="gifts-outer">
-        <div class="gifts-inner">
-          <p>
-            Votre présence est le plus beau des cadeaux !
-            Si toutefois vous souhaitez nous gâter,
-            nous avons créé une liste pour vous faciliter la tâche.
-          </p>
-          <p>
-            Suivez le lien ci-dessous pour découvrir nos choix
-            et trouver ce qui vous convient.
-          </p>
-          <a href="#" class="gifts-btn">Liste de mariage</a>
-        </div>
-      </div>
+<section id="gifts">
+  <div class="gifts-frame">
+    <div class="gifts-content">
+      <div class="gifts-title">gifts</div>
+      <p>
+        We're so grateful for your love and support as we celebrate
+        our wedding day! If you'd like to honor us with a gift, we've
+        created a registry to make things easier.
+      </p>
+      <p>
+        Please follow the link below to view our selections and
+        choose something that feels right for you.
+      </p>
+      <a href="#" class="gifts-btn">Gift Registry</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<section id="footer" class="section-green">
-  <div class="section-inner text-center">
-    <div class="footer-box">
-      <div class="footer-text">
-        Si vous avez la moindre question,<br>
-        n'hésitez pas à nous contacter.<br>
-        Nous avons hâte de célébrer avec vous !
-      </div>
-      <div class="footer-names">Viktoriya et Grégoire</div>
-    </div>
+<section id="footer">
+  <div class="footer-text">
+    If you have any questions<br>
+    please get in contact with us.<br>
+    We can't wait to celebrate with you
   </div>
+  <div class="footer-names">Sophie and James</div>
 </section>
 
 </body>
