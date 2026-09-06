@@ -27,6 +27,9 @@
       padding: 20px 40px;
       display: flex; justify-content: flex-end; gap: 36px;
     }
+    section[id] {
+      scroll-margin-top: 60px;
+    }
     nav a {
       color: var(--white); text-decoration: none;
       font-family: var(--serif); font-size: 15px; font-weight: 400;
@@ -175,7 +178,7 @@
     }
 
     /* ─── THE DAY ─── */
-    #theday { background: var(--cream); padding: 100px 40px; text-align: center; }
+    #theday { background: var(--cream); padding: 100px 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
     .theday-title {
       font-family: var(--serif); font-weight: 400;
       font-size: clamp(48px, 8vw, 80px);
@@ -343,7 +346,7 @@
     }
 
     /* ─── DETAILS ─── */
-    #details { background: var(--cream); padding: 50px 40px; }
+    #details { background: var(--cream); padding: 50px 40px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
     .details-inner { max-width: 1000px; margin: 0 auto; }
     .details-title {
       font-family: var(--script);
@@ -448,7 +451,7 @@
 
     /* ─── FOOTER ─── */
     #footer {
-      background: var(--green); padding: 100px 40px;
+      background: var(--green); padding: 80px 40px 40px;
       text-align: center;
     }
     .footer-text {
@@ -462,15 +465,9 @@
       color: var(--cream);
       margin-bottom: 24px;
     }
-    .footer-phones {
-      font-family: var(--serif); font-size: 16px;
-      color: var(--cream); line-height: 1.8;
-      margin-bottom: 32px;
-    }
-    .footer-phones a {
+    .footer-text a {
       color: var(--cream); text-decoration: none;
     }
-    .footer-phones a:hover { text-decoration: underline; }
     .footer-copy {
       font-family: var(--serif); font-size: 13px;
       color: var(--cream); opacity: 0.5;
