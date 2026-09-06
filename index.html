@@ -610,6 +610,37 @@
           r.closest('.radio-option').classList.add('selected');
         });
       });
+
+      // Form submission to Google Sheets
+      document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('.form-submit');
+        var origText = btn.textContent;
+        btn.textContent = '...';
+        btn.disabled = true;
+
+        var data = {
+          names: this.querySelector('input[type="text"]').value,
+          attending: (this.querySelector('input[name="attending"]:checked') || {}).value || '',
+          dietary: (this.querySelector('input[name="dietary"]:checked') || {}).value || '',
+          dietaryDetails: this.querySelector('textarea').value,
+          lang: new URLSearchParams(window.location.search).get('lang') || 'en'
+        };
+
+        fetch('https://script.google.com/macros/s/AKfycbx8UUaOY_US9Bgods2VCDfLfE0kXmlTYJOLNoV0kGr8eQAAzqTFrZHuRh4wcld88UXk/exec', {
+          method: 'POST',
+          body: JSON.stringify(data)
+        })
+        .then(function() {
+          btn.textContent = '✓';
+          btn.style.background = '#6e7e3f';
+        })
+        .catch(function() {
+          btn.textContent = origText;
+          btn.disabled = false;
+          alert('Error, please try again.');
+        });
+      });
     </script>
   </div>
   <div class="rsvp-right">
