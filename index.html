@@ -17,7 +17,7 @@
       --script: 'Great Vibes', cursive;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--serif); color: var(--green); background: var(--cream); -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--serif); color: var(--green); background: var(--cream); -webkit-font-smoothing: antialiased; font-size: 19px; }
 
     /* ─── NAV ─── */
     nav {
@@ -181,13 +181,13 @@
       object-fit: contain;
     }
     .timeline-time {
-      font-family: var(--serif); font-size: 18px;
+      font-family: var(--serif); font-size: 20px;
       text-transform: uppercase; letter-spacing: 0.1em;
       font-weight: 500; margin-bottom: 6px;
     }
     .timeline-label {
       font-family: var(--script);
-      font-size: 34px; color: var(--green);
+      font-size: 38px; color: var(--green);
     }
 
     /* ─── RSVP ─── */
@@ -206,7 +206,7 @@
       background: repeating-linear-gradient(
         90deg,
         #FCF5EA 0px, #FCF5EA 44px,
-        var(--green) 44px, var(--green) 56px
+        var(--green) 44px, var(--green) 88px
       );
     }
     .rsvp-title {
@@ -215,29 +215,31 @@
       color: var(--cream); margin-bottom: 8px;
     }
     .rsvp-deadline {
-      font-family: var(--serif); font-size: 18px;
+      font-family: var(--serif); font-size: 20px;
       color: var(--cream); letter-spacing: 0.03em;
       margin-bottom: 40px;
     }
     .rsvp-form-card {
       background: var(--cream);
-      padding: 48px 50px;
-      max-width: 580px;
+      padding: 50px 54px;
+      max-width: 640px;
+      border-radius: 8px 8px 0 0;
     }
-    .form-group { margin-bottom: 32px; }
+    .form-group { margin-bottom: 36px; }
     .form-group .field-label {
       display: block; font-family: var(--serif);
-      font-size: 18px; font-weight: 600;
-      margin-bottom: 12px; color: var(--green);
+      font-size: 21px; font-weight: 600;
+      margin-bottom: 14px; color: var(--green);
     }
     .form-group input[type="text"],
     .form-group textarea {
       width: 100%;
-      padding: 14px 16px;
+      padding: 16px 18px;
       border: 1px solid rgba(66,84,64,0.25);
+      border-radius: 6px;
       background: transparent;
       color: var(--green); font-family: var(--serif);
-      font-size: 16px; outline: none;
+      font-size: 18px; outline: none;
       transition: border-color 0.3s;
     }
     .form-group input[type="text"]:focus,
@@ -251,23 +253,25 @@
     .radio-group { display: flex; flex-direction: column; gap: 10px; }
     .radio-option {
       display: block; padding: 16px 20px;
-      background: rgba(66,84,64,0.08);
+      background: rgba(66,84,64,0.1);
+      border-radius: 6px;
       color: var(--green); font-family: var(--serif);
-      font-size: 17px; cursor: pointer;
+      font-size: 19px; cursor: pointer;
       transition: background 0.2s;
     }
-    .radio-option:hover { background: rgba(66,84,64,0.14); }
-    .radio-option.selected { background: rgba(66,84,64,0.18); }
+    .radio-option:hover { background: rgba(66,84,64,0.16); }
+    .radio-option.selected { background: rgba(66,84,64,0.2); }
     .radio-option input[type="radio"] {
       position: absolute; opacity: 0; pointer-events: none;
     }
     .form-submit {
-      display: inline-block; padding: 14px 48px;
+      display: block; width: 100%; padding: 18px 48px;
       background: var(--green); color: var(--cream);
-      font-family: var(--serif); font-size: 16px;
-      text-transform: uppercase; letter-spacing: 0.1em;
+      font-family: var(--serif); font-size: 17px;
+      text-transform: uppercase; letter-spacing: 0.12em;
       border: none; cursor: pointer; font-weight: 600;
-      margin-top: 8px; transition: opacity 0.3s;
+      border-radius: 6px;
+      margin-top: 12px; transition: opacity 0.3s;
     }
     .form-submit:hover { opacity: 0.85; }
 
@@ -286,11 +290,11 @@
     .detail-block { text-align: center; }
     .detail-block h3 {
       font-family: var(--serif); font-weight: 700;
-      font-size: 17px; text-transform: uppercase;
+      font-size: 20px; text-transform: uppercase;
       letter-spacing: 0.08em; margin-bottom: 16px;
     }
     .detail-block p {
-      font-family: var(--serif); font-size: 17px;
+      font-family: var(--serif); font-size: 20px;
       line-height: 1.7; letter-spacing: 0.02em;
     }
     .color-dots {
@@ -329,12 +333,12 @@
     }
     .hotel-name {
       font-family: var(--serif); font-weight: 400;
-      font-size: 18px; text-transform: uppercase;
+      font-size: 20px; text-transform: uppercase;
       letter-spacing: 0.08em; color: var(--white);
       margin-bottom: 24px;
     }
     .hotel-info {
-      font-family: var(--serif); font-size: 16px;
+      font-family: var(--serif); font-size: 19px;
       color: var(--cream); line-height: 1.7;
       margin-bottom: 28px;
     }
@@ -342,7 +346,7 @@
       display: inline-block; padding: 10px 40px;
       background: var(--cream); color: var(--green);
       text-decoration: none; font-family: var(--serif);
-      font-size: 15px; letter-spacing: 0.04em;
+      font-size: 17px; letter-spacing: 0.04em;
       transition: opacity 0.3s;
     }
     .hotel-btn:hover { opacity: 0.85; }
@@ -350,17 +354,11 @@
     /* ─── GIFTS ─── */
     #gifts { background: var(--cream); padding: 80px 40px; text-align: center; }
     .gifts-frame {
-      max-width: 800px; margin: 0 auto;
-      border: 4px solid var(--green); padding: 20px;
-      position: relative;
-    }
-    .gifts-frame::before {
-      content: ''; position: absolute;
-      inset: 8px; border: 1px solid var(--green);
+      max-width: 900px; margin: 0 auto;
+      border: 5px solid var(--green); padding: 0;
     }
     .gifts-content {
-      position: relative; z-index: 1;
-      padding: 60px 50px;
+      padding: 70px 60px;
     }
     .gifts-title {
       font-family: var(--script);
@@ -368,16 +366,16 @@
       margin-bottom: 40px;
     }
     .gifts-content p {
-      font-family: var(--serif); font-size: 18px;
+      font-family: var(--serif); font-size: 20px;
       line-height: 1.7; color: var(--green);
-      max-width: 540px; margin: 0 auto 24px;
+      max-width: 600px; margin: 0 auto 24px;
     }
     .gifts-btn {
-      display: inline-block; padding: 16px 48px;
+      display: inline-block; padding: 18px 56px;
       background: var(--green); color: var(--white);
       text-decoration: none; font-family: var(--serif);
-      font-size: 16px; letter-spacing: 0.04em;
-      margin-top: 20px; transition: opacity 0.3s;
+      font-size: 17px; letter-spacing: 0.04em;
+      margin-top: 24px; transition: opacity 0.3s;
     }
     .gifts-btn:hover { opacity: 0.85; }
 
@@ -387,7 +385,7 @@
       text-align: center;
     }
     .footer-text {
-      font-family: var(--serif); font-size: 18px;
+      font-family: var(--serif); font-size: 20px;
       color: var(--cream); line-height: 1.8;
       margin-bottom: 28px;
     }
@@ -569,22 +567,15 @@
             <label class="radio-option"><input type="radio" name="dietary" value="yes"> Yes</label>
           </div>
         </div>
-        <div class="form-group" id="dietary-details" style="display:none;">
-          <span class="field-label">If yes, please specify</span>
+        <div class="form-group">
+          <span class="field-label">If yes, please specify them here.</span>
           <textarea rows="3"></textarea>
         </div>
-        <button type="submit" class="form-submit">Send</button>
+        <button type="submit" class="form-submit">Submit</button>
       </form>
     </div>
 
     <script>
-      // Toggle dietary details
-      document.querySelectorAll('input[name="dietary"]').forEach(r => {
-        r.addEventListener('change', () => {
-          document.getElementById('dietary-details').style.display =
-            document.querySelector('input[name="dietary"][value="yes"]').checked ? 'block' : 'none';
-        });
-      });
       // Highlight selected radio option
       document.querySelectorAll('.radio-option input[type="radio"]').forEach(r => {
         r.addEventListener('change', () => {
