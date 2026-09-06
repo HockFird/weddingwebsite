@@ -239,9 +239,9 @@
       color: var(--cream); margin-bottom: 8px;
     }
     .rsvp-deadline {
-      font-family: var(--serif); font-size: 20px;
+      font-family: var(--serif); font-size: 26px;
       color: var(--cream); letter-spacing: 0.03em;
-      margin-bottom: 40px;
+      margin-bottom: 40px; font-weight: 300;
     }
     .rsvp-form-card {
       background: var(--cream);
@@ -256,6 +256,7 @@
       margin-bottom: 14px; color: var(--green);
     }
     .form-group input[type="text"],
+    .form-group input[type="email"],
     .form-group textarea {
       width: 100%;
       padding: 16px 18px;
@@ -267,10 +268,12 @@
       transition: border-color 0.3s;
     }
     .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus,
     .form-group textarea:focus {
       border-color: var(--green);
     }
     .form-group input[type="text"]::placeholder,
+    .form-group input[type="email"]::placeholder,
     .form-group textarea::placeholder {
       color: rgba(66,84,64,0.35);
     }
@@ -301,6 +304,15 @@
       margin-top: 12px; transition: opacity 0.3s;
     }
     .form-submit:hover { opacity: 0.85; }
+    .dietary-slide {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-bottom 0.4s ease;
+      margin-bottom: 0 !important;
+    }
+    .dietary-slide.open {
+      max-height: 200px; opacity: 1;
+      margin-bottom: 36px !important;
+    }
     .rsvp-confirmation {
       text-align: center; padding: 40px 0;
     }
@@ -596,12 +608,20 @@
 <section id="rsvp">
   <div class="rsvp-left">
     <div class="rsvp-title">RSVP</div>
-    <div class="rsvp-deadline" data-i18n="rsvp_deadline">Please reply by June 1st 2028.</div>
+    <div class="rsvp-deadline" data-i18n="rsvp_deadline">Saturday, June 26th 2027</div>
     <div class="rsvp-form-card">
       <form action="#" method="POST">
         <div class="form-group">
           <span class="field-label" data-i18n="rsvp_names">Your names</span>
-          <input type="text" required>
+          <input type="text" name="names" required>
+        </div>
+        <div class="form-group">
+          <span class="field-label" data-i18n="rsvp_email">Your email</span>
+          <input type="email" name="email">
+        </div>
+        <div class="form-group">
+          <span class="field-label" data-i18n="rsvp_address">Your postal address</span>
+          <input type="text" name="address">
         </div>
         <div class="form-group">
           <span class="field-label" data-i18n="rsvp_attending">Will you be attending our wedding?</span>
@@ -611,13 +631,20 @@
           </div>
         </div>
         <div class="form-group">
+          <span class="field-label" data-i18n="rsvp_brunch">Will you be attending brunch on Sunday 27th?</span>
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="brunch" value="yes"> <span data-i18n="rsvp_yes">Yes</span></label>
+            <label class="radio-option"><input type="radio" name="brunch" value="no"> <span data-i18n="rsvp_no">No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
           <span class="field-label" data-i18n="rsvp_dietary">Do you have any dietary requirements?</span>
           <div class="radio-group">
             <label class="radio-option"><input type="radio" name="dietary" value="no"> <span data-i18n="rsvp_no">No</span></label>
             <label class="radio-option"><input type="radio" name="dietary" value="yes"> <span data-i18n="rsvp_yes">Yes</span></label>
           </div>
         </div>
-        <div class="form-group" id="dietary-details" style="display:none;">
+        <div class="form-group dietary-slide" id="dietary-details">
           <span class="field-label" data-i18n="rsvp_specify">If yes, please specify them here.</span>
           <textarea rows="3"></textarea>
         </div>
@@ -634,11 +661,15 @@
         });
       });
 
-      // Toggle dietary details
+      // Smooth toggle dietary details
       document.querySelectorAll('input[name="dietary"]').forEach(r => {
         r.addEventListener('change', () => {
-          document.getElementById('dietary-details').style.display =
-            document.querySelector('input[name="dietary"][value="yes"]').checked ? 'block' : 'none';
+          var el = document.getElementById('dietary-details');
+          if (document.querySelector('input[name="dietary"][value="yes"]').checked) {
+            el.classList.add('open');
+          } else {
+            el.classList.remove('open');
+          }
         });
       });
 
@@ -658,19 +689,18 @@
         btn.disabled = true;
 
         var data = {
-          names: this.querySelector('input[type="text"]').value,
+          names: this.querySelector('input[name="names"]').value,
+          email: this.querySelector('input[name="email"]').value,
+          address: this.querySelector('input[name="address"]').value,
           attending: (this.querySelector('input[name="attending"]:checked') || {}).value || '',
+          brunch: (this.querySelector('input[name="brunch"]:checked') || {}).value || '',
           dietary: (this.querySelector('input[name="dietary"]:checked') || {}).value || '',
           dietaryDetails: this.querySelector('textarea').value,
           lang: new URLSearchParams(window.location.search).get('lang') || 'en'
         };
 
         var params = new URLSearchParams();
-        params.append('names', data.names);
-        params.append('attending', data.attending);
-        params.append('dietary', data.dietary);
-        params.append('dietaryDetails', data.dietaryDetails);
-        params.append('lang', data.lang);
+        Object.keys(data).forEach(function(k) { params.append(k, data[k]); });
 
         var card = document.querySelector('.rsvp-form-card');
         var lang = data.lang;
@@ -688,6 +718,7 @@
             + '<div class="confirm-text">' + ct.msg + '</div>'
             + '<button class="confirm-again" onclick="location.reload()">' + ct.btn + '</button>'
             + '</div>';
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         })
         .catch(function() {
           btn.textContent = ct.btn;
@@ -838,9 +869,11 @@ const T = {
     story_sign:"With love,",
     theday_title:"The Day",
     tl_ceremony:"ceremony", tl_drinks:"drinks", tl_dinner:"dinner", tl_cake:"cake cutting", tl_party:"party", tl_party_time:"12AM", tl_hometime:"hometime",
-    rsvp_deadline:"Please reply by June 1st 2028.",
-    rsvp_names:"Your names", rsvp_attending:"Will you be attending our wedding?",
+    rsvp_deadline:"Saturday, June 26th 2027",
+    rsvp_names:"Your names", rsvp_email:"Your email", rsvp_address:"Your postal address",
+    rsvp_attending:"Will you be attending our wedding?",
     rsvp_accept:"Joyfully accepts", rsvp_decline:"Regretfully declines",
+    rsvp_brunch:"Will you be attending brunch on Sunday 27th?",
     rsvp_dietary:"Do you have any dietary requirements?", rsvp_no:"No", rsvp_yes:"Yes",
     rsvp_specify:"If yes, please specify them here.", rsvp_submit:"Submit",
     details_title:"Other Details",
@@ -862,9 +895,11 @@ const T = {
     story_sign:"Avec amour,",
     theday_title:"Le Jour J",
     tl_ceremony:"cérémonie", tl_drinks:"cocktail", tl_dinner:"dîner", tl_cake:"gâteau", tl_party:"soirée", tl_party_time:"0h", tl_hometime:"départ",
-    rsvp_deadline:"Merci de répondre avant le 1er juin 2028.",
-    rsvp_names:"Vos noms", rsvp_attending:"Serez-vous présents à notre mariage ?",
+    rsvp_deadline:"Samedi 26 juin 2027",
+    rsvp_names:"Vos noms", rsvp_email:"Votre email", rsvp_address:"Votre adresse postale",
+    rsvp_attending:"Serez-vous présents à notre mariage ?",
     rsvp_accept:"Accepte avec joie", rsvp_decline:"Décline avec regret",
+    rsvp_brunch:"Serez-vous présents au brunch le dimanche 27 ?",
     rsvp_dietary:"Avez-vous des restrictions alimentaires ?", rsvp_no:"Non", rsvp_yes:"Oui",
     rsvp_specify:"Si oui, merci de les préciser ici.", rsvp_submit:"Envoyer",
     details_title:"Autres Détails",
@@ -886,9 +921,11 @@ const T = {
     story_sign:"З любов'ю,",
     theday_title:"Цей День",
     tl_ceremony:"церемонія", tl_drinks:"коктейль", tl_dinner:"вечеря", tl_cake:"торт", tl_party:"вечірка", tl_party_time:"0:00", tl_hometime:"додому",
-    rsvp_deadline:"Будь ласка, дайте відповідь до 1 червня 2028.",
-    rsvp_names:"Ваші імена", rsvp_attending:"Чи будете ви присутні на нашому весіллі?",
+    rsvp_deadline:"Субота, 26 червня 2027",
+    rsvp_names:"Ваші імена", rsvp_email:"Ваш email", rsvp_address:"Ваша поштова адреса",
+    rsvp_attending:"Чи будете ви присутні на нашому весіллі?",
     rsvp_accept:"З радістю приймає", rsvp_decline:"На жаль, відмовляє",
+    rsvp_brunch:"Чи будете ви на бранчі в неділю 27-го?",
     rsvp_dietary:"Чи є у вас дієтичні обмеження?", rsvp_no:"Ні", rsvp_yes:"Так",
     rsvp_specify:"Якщо так, будь ласка, вкажіть їх тут.", rsvp_submit:"Надіслати",
     details_title:"Інші деталі",
