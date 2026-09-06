@@ -32,6 +32,33 @@
       letter-spacing: 0.06em; transition: opacity 0.3s;
     }
     nav a:hover { opacity: 0.7; }
+    .lang-switcher {
+      position: relative; margin-left: 12px;
+    }
+    .lang-btn {
+      background: transparent; border: 1px solid rgba(255,255,255,0.4);
+      color: var(--white); font-family: var(--serif); font-size: 14px;
+      padding: 6px 28px 6px 12px; cursor: pointer;
+      letter-spacing: 0.06em; border-radius: 4px;
+      appearance: none;
+    }
+    .lang-btn::after {
+      content: '▾'; position: absolute; right: 10px; top: 50%;
+      transform: translateY(-50%); pointer-events: none; font-size: 12px;
+    }
+    .lang-dropdown {
+      display: none; position: absolute; top: 100%; right: 0;
+      background: var(--green); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px; margin-top: 4px; z-index: 100;
+      min-width: 100%;
+    }
+    .lang-dropdown.open { display: block; }
+    .lang-dropdown a {
+      display: block; padding: 8px 16px; color: var(--white);
+      text-decoration: none; font-family: var(--serif); font-size: 14px;
+      letter-spacing: 0.06em; white-space: nowrap;
+    }
+    .lang-dropdown a:hover { background: rgba(255,255,255,0.1); }
 
     /* ─── HERO ─── */
     #hero {
@@ -41,7 +68,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80') center/cover no-repeat;
+      background: url('photo/hero-bg.jpg') center/cover no-repeat;
       opacity: 0.45;
     }
     .hero-content {
@@ -73,17 +100,13 @@
     }
     .date-photo-frame {
       flex: 0 0 auto; position: relative;
-      border: 3px solid var(--green); padding: 24px;
+      border: 5px solid var(--green); padding: 0;
       width: 420px; max-width: 45%;
-    }
-    .date-photo-frame::before {
-      content: ''; position: absolute;
-      inset: 8px; border: 1px solid var(--green);
     }
     .date-photo {
       width: 100%; aspect-ratio: 3/4;
-      background: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80') center/cover no-repeat;
-      filter: grayscale(100%);
+      background: url('photo/couple.jpg') center/cover no-repeat;
+      
     }
     .date-text { text-align: center; flex: 0 1 auto; }
     .date-script {
@@ -110,7 +133,7 @@
     }
     .story-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&q=80') center/cover no-repeat;
+      background: url('photo/hero-bg.jpg') center/cover no-repeat;
       opacity: 0.45;
     }
     .story-inner {
@@ -310,7 +333,7 @@
     }
     .hotels-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&q=80') center/cover no-repeat;
+      background: url('photo/hero-bg.jpg') center/cover no-repeat;
       opacity: 0.4;
     }
     .hotels-inner {
@@ -419,21 +442,25 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#theday">The Day</a>
+  <a href="#theday" data-i18n="nav_theday">The Day</a>
   <a href="#rsvp">RSVP</a>
-  <a href="#details">Details</a>
-  <a href="#hotels">Hotels</a>
-  <a href="#gifts">Gifts</a>
+  <a href="#details" data-i18n="nav_details">Details</a>
+  <a href="#hotels" data-i18n="nav_hotels">Hotels</a>
+  <a href="#gifts" data-i18n="nav_gifts">Gifts</a>
+  <div class="lang-switcher">
+    <button class="lang-btn" id="langBtn">EN</button>
+    <div class="lang-dropdown" id="langDrop"></div>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-name">Sophie</div>
-    <div class="hero-and">and</div>
-    <div class="hero-name">James</div>
-    <div class="hero-subtitle">are getting married!</div>
+    <div class="hero-name">Viktoriya</div>
+    <div class="hero-and">&amp;</div>
+    <div class="hero-name">Grégoire</div>
+    <div class="hero-subtitle" data-i18n="hero_subtitle">are getting married!</div>
   </div>
 </section>
 
@@ -444,9 +471,9 @@
       <div class="date-photo"></div>
     </div>
     <div class="date-text">
-      <div class="date-script">September 1st</div>
-      <div class="date-at">at</div>
-      <div class="date-venue">Baolu House</div>
+      <div class="date-script" data-i18n="date_date">June 26th</div>
+      <div class="date-at" data-i18n="date_at">at</div>
+      <div class="date-venue">Saint-Tropez</div>
     </div>
   </div>
 </section>
@@ -456,9 +483,9 @@
   <div class="story-bg"></div>
   <div class="story-inner">
     <div class="story-box">
-      <div class="story-title">Our special day</div>
-      <div class="story-heading">Sophie and James</div>
-      <div class="story-body">
+      <div class="story-title" data-i18n="story_title">Our special day</div>
+      <div class="story-heading">Viktoriya &amp; Grégoire</div>
+      <div class="story-body" data-i18n="story_body">
         We are so excited to celebrate this special moment in our lives with
         our closest family and friends.<br>
         Your love and support means the world to us,
@@ -468,15 +495,15 @@
         Thank you for being a part of our journey.<br>
         We can't wait to celebrate with you!
       </div>
-      <div class="story-sign">With love,</div>
-      <div class="story-names">Sophie and James</div>
+      <div class="story-sign" data-i18n="story_sign">With love,</div>
+      <div class="story-names">Viktoriya &amp; Grégoire</div>
     </div>
   </div>
 </section>
 
 <!-- THE DAY -->
 <section id="theday">
-  <div class="theday-title">The Day</div>
+  <div class="theday-title" data-i18n="theday_title">The Day</div>
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-icon">
@@ -486,8 +513,8 @@
           <circle cx="40" cy="62" r="3"/>
         </svg>
       </div>
-      <div class="timeline-time">1PM</div>
-      <div class="timeline-label">ceremony</div>
+      <div class="timeline-time">4PM</div>
+      <div class="timeline-label" data-i18n="tl_ceremony">ceremony</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-icon">
@@ -499,22 +526,22 @@
           <path d="M42 14 Q44 8 42 4"/>
         </svg>
       </div>
-      <div class="timeline-time">2PM</div>
-      <div class="timeline-label">drinks</div>
+      <div class="timeline-time">7PM</div>
+      <div class="timeline-label" data-i18n="tl_drinks">drinks</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-icon">
-        <img src="gateau.png" alt="Cake cutting">
+        <img src="photo/table.png" alt="Dinner">
       </div>
-      <div class="timeline-time">4PM</div>
-      <div class="timeline-label">cake cutting</div>
+      <div class="timeline-time">9PM</div>
+      <div class="timeline-label" data-i18n="tl_dinner">dinner</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-icon">
-        <img src="table.png" alt="Dinner">
+        <img src="photo/gateau.png" alt="Cake cutting">
       </div>
-      <div class="timeline-time">6PM</div>
-      <div class="timeline-label">dinner</div>
+      <div class="timeline-time">11PM</div>
+      <div class="timeline-label" data-i18n="tl_cake">cake cutting</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-icon">
@@ -529,15 +556,15 @@
           <line x1="52" y1="8" x2="54" y2="4"/>
         </svg>
       </div>
-      <div class="timeline-time">8PM</div>
-      <div class="timeline-label">party</div>
+      <div class="timeline-time" data-i18n="tl_party_time">12AM</div>
+      <div class="timeline-label" data-i18n="tl_party">party</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-icon">
-        <img src="car.png" alt="Hometime">
+        <img src="photo/car.png" alt="Hometime">
       </div>
-      <div class="timeline-time">12AM</div>
-      <div class="timeline-label">hometime</div>
+      <div class="timeline-time">4AM</div>
+      <div class="timeline-label" data-i18n="tl_hometime">hometime</div>
     </div>
   </div>
 </section>
@@ -546,32 +573,32 @@
 <section id="rsvp">
   <div class="rsvp-left">
     <div class="rsvp-title">RSVP</div>
-    <div class="rsvp-deadline">Please reply by June 1st 2028.</div>
+    <div class="rsvp-deadline" data-i18n="rsvp_deadline">Please reply by June 1st 2028.</div>
     <div class="rsvp-form-card">
       <form action="#" method="POST">
         <div class="form-group">
-          <span class="field-label">Your names</span>
+          <span class="field-label" data-i18n="rsvp_names">Your names</span>
           <input type="text" required>
         </div>
         <div class="form-group">
-          <span class="field-label">Will you be attending our wedding?</span>
+          <span class="field-label" data-i18n="rsvp_attending">Will you be attending our wedding?</span>
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="attending" value="yes"> Joyfully accepts</label>
-            <label class="radio-option"><input type="radio" name="attending" value="no"> Regretfully declines</label>
+            <label class="radio-option"><input type="radio" name="attending" value="yes"> <span data-i18n="rsvp_accept">Joyfully accepts</span></label>
+            <label class="radio-option"><input type="radio" name="attending" value="no"> <span data-i18n="rsvp_decline">Regretfully declines</span></label>
           </div>
         </div>
         <div class="form-group">
-          <span class="field-label">Do you have any dietary requirements?</span>
+          <span class="field-label" data-i18n="rsvp_dietary">Do you have any dietary requirements?</span>
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="dietary" value="no"> No</label>
-            <label class="radio-option"><input type="radio" name="dietary" value="yes"> Yes</label>
+            <label class="radio-option"><input type="radio" name="dietary" value="no"> <span data-i18n="rsvp_no">No</span></label>
+            <label class="radio-option"><input type="radio" name="dietary" value="yes"> <span data-i18n="rsvp_yes">Yes</span></label>
           </div>
         </div>
         <div class="form-group">
-          <span class="field-label">If yes, please specify them here.</span>
+          <span class="field-label" data-i18n="rsvp_specify">If yes, please specify them here.</span>
           <textarea rows="3"></textarea>
         </div>
-        <button type="submit" class="form-submit">Submit</button>
+        <button type="submit" class="form-submit" data-i18n="rsvp_submit">Submit</button>
       </form>
     </div>
 
@@ -593,26 +620,26 @@
 <!-- DETAILS -->
 <section id="details">
   <div class="details-inner">
-    <div class="details-title">Other Details</div>
+    <div class="details-title" data-i18n="details_title">Other Details</div>
     <div class="details-grid">
       <div class="detail-block">
-        <h3>Directions to venue:</h3>
-        <p>
+        <h3 data-i18n="det_directions_h">Directions to venue:</h3>
+        <p data-i18n="det_directions_p">
           For those driving to the venue, please use the
           area code 09967 for directions on Google.<br><br>
           Parking is available in site.
         </p>
       </div>
       <div class="detail-block">
-        <h3>Children:</h3>
-        <p>
+        <h3 data-i18n="det_children_h">Children:</h3>
+        <p data-i18n="det_children_p">
           This event is adults-only.<br>
           We appreciate your understanding.
         </p>
       </div>
       <div class="detail-block">
-        <h3>Public Transport/Taxis:</h3>
-        <p>
+        <h3 data-i18n="det_transport_h">Public Transport/Taxis:</h3>
+        <p data-i18n="det_transport_p">
           Public transport is limited in the area,
           but taxis from the nearest town are available.<br>
           Local taxis: Cabcompany: 01234567891.<br><br>
@@ -620,8 +647,8 @@
         </p>
       </div>
       <div class="detail-block">
-        <h3>Dress Code:</h3>
-        <p>
+        <h3 data-i18n="det_dress_h">Dress Code:</h3>
+        <p data-i18n="det_dress_p">
           We kindly ask guests to wear cocktail or
           semi formal attire.<br><br>
           For the welcome drinks, feel free to lean
@@ -644,7 +671,7 @@
 <section id="hotels">
   <div class="hotels-bg"></div>
   <div class="hotels-inner">
-    <div class="hotels-title">Where to Stay Nearby</div>
+    <div class="hotels-title" data-i18n="hotels_title">Where to Stay Nearby</div>
     <div class="hotels-grid">
       <div class="hotel-card">
         <div class="hotel-name">Hotel Premezzo</div>
@@ -656,7 +683,7 @@
           with timeless elegance.<br>
           A 2 min walk to the venue
         </div>
-        <a href="#" class="hotel-btn">Book here</a>
+        <a href="#" class="hotel-btn" data-i18n="hotel_book">Book here</a>
       </div>
       <div class="hotel-card">
         <div class="hotel-name">Villa d'Este</div>
@@ -668,7 +695,7 @@
           with timeless elegance.<br>
           A 5 min walk to the venue
         </div>
-        <a href="#" class="hotel-btn">Book here</a>
+        <a href="#" class="hotel-btn" data-i18n="hotel_book">Book here</a>
       </div>
       <div class="hotel-card">
         <div class="hotel-name">Hotel d'Gina</div>
@@ -680,7 +707,7 @@
           with timeless elegance.<br>
           A 15 min walk to the venue
         </div>
-        <a href="#" class="hotel-btn">Book here</a>
+        <a href="#" class="hotel-btn" data-i18n="hotel_book">Book here</a>
       </div>
     </div>
   </div>
@@ -690,30 +717,150 @@
 <section id="gifts">
   <div class="gifts-frame">
     <div class="gifts-content">
-      <div class="gifts-title">gifts</div>
-      <p>
+      <div class="gifts-title" data-i18n="gifts_title">gifts</div>
+      <p data-i18n="gifts_p1">
         We're so grateful for your love and support as we celebrate
         our wedding day! If you'd like to honor us with a gift, we've
         created a registry to make things easier.
       </p>
-      <p>
+      <p data-i18n="gifts_p2">
         Please follow the link below to view our selections and
         choose something that feels right for you.
       </p>
-      <a href="#" class="gifts-btn">Gift Registry</a>
+      <a href="#" class="gifts-btn" data-i18n="gifts_btn">Gift Registry</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <section id="footer">
-  <div class="footer-text">
+  <div class="footer-text" data-i18n="footer_text">
     If you have any questions<br>
     please get in contact with us.<br>
     We can't wait to celebrate with you
   </div>
-  <div class="footer-names">Sophie and James</div>
+  <div class="footer-names">Viktoriya &amp; Grégoire</div>
 </section>
+
+<script>
+const T = {
+  en: {
+    nav_theday:"The Day", nav_details:"Details", nav_hotels:"Hotels", nav_gifts:"Gifts",
+    hero_subtitle:"are getting married!",
+    date_date:"June 26th", date_at:"at",
+    story_title:"Our special day",
+    story_body:"We are so excited to celebrate this special moment in our lives with our closest family and friends.<br>Your love and support means the world to us, and we can't wait to share this unforgettable day with you.<br><br>As we count down to our big day, we've created this website to keep you updated on all the details.<br><br>Thank you for being a part of our journey.<br>We can't wait to celebrate with you!",
+    story_sign:"With love,",
+    theday_title:"The Day",
+    tl_ceremony:"ceremony", tl_drinks:"drinks", tl_dinner:"dinner", tl_cake:"cake cutting", tl_party:"party", tl_party_time:"12AM", tl_hometime:"hometime",
+    rsvp_deadline:"Please reply by June 1st 2028.",
+    rsvp_names:"Your names", rsvp_attending:"Will you be attending our wedding?",
+    rsvp_accept:"Joyfully accepts", rsvp_decline:"Regretfully declines",
+    rsvp_dietary:"Do you have any dietary requirements?", rsvp_no:"No", rsvp_yes:"Yes",
+    rsvp_specify:"If yes, please specify them here.", rsvp_submit:"Submit",
+    details_title:"Other Details",
+    det_directions_h:"Directions to venue:", det_directions_p:"For those driving to the venue, please use the area code 09967 for directions on Google.<br><br>Parking is available on site.",
+    det_children_h:"Children:", det_children_p:"This event is adults-only.<br>We appreciate your understanding.",
+    det_transport_h:"Public Transport/Taxis:", det_transport_p:"Public transport is limited in the area, but taxis from the nearest town are available.<br>Local taxis: Cabcompany: 01234567891.<br><br>We recommend booking in advance.",
+    det_dress_h:"Dress Code:", det_dress_p:"We kindly ask guests to wear cocktail or semi formal attire.<br><br>For the welcome drinks, feel free to lean into softer tones like pink, yellow, orange, navy, or blue.",
+    hotels_title:"Where to Stay Nearby", hotel_book:"Book here",
+    gifts_title:"gifts", gifts_p1:"We're so grateful for your love and support as we celebrate our wedding day! If you'd like to honor us with a gift, we've created a registry to make things easier.",
+    gifts_p2:"Please follow the link below to view our selections and choose something that feels right for you.", gifts_btn:"Gift Registry",
+    footer_text:"If you have any questions<br>please get in contact with us.<br>We can't wait to celebrate with you"
+  },
+  fr: {
+    nav_theday:"Le Jour J", nav_details:"Détails", nav_hotels:"Hôtels", nav_gifts:"Cadeaux",
+    hero_subtitle:"se marient !",
+    date_date:"26 juin", date_at:"à",
+    story_title:"Notre jour spécial",
+    story_body:"Nous sommes très heureux de célébrer ce moment si spécial avec nos proches et amis les plus chers.<br>Votre amour et votre soutien comptent énormément pour nous, et nous avons hâte de partager cette journée inoubliable avec vous.<br><br>En attendant le grand jour, nous avons créé ce site pour vous tenir informés de tous les détails.<br><br>Merci de faire partie de notre histoire.<br>Nous avons hâte de fêter ça avec vous !",
+    story_sign:"Avec amour,",
+    theday_title:"Le Jour J",
+    tl_ceremony:"cérémonie", tl_drinks:"cocktail", tl_dinner:"dîner", tl_cake:"gâteau", tl_party:"soirée", tl_party_time:"0h", tl_hometime:"départ",
+    rsvp_deadline:"Merci de répondre avant le 1er juin 2028.",
+    rsvp_names:"Vos noms", rsvp_attending:"Serez-vous présents à notre mariage ?",
+    rsvp_accept:"Accepte avec joie", rsvp_decline:"Décline avec regret",
+    rsvp_dietary:"Avez-vous des restrictions alimentaires ?", rsvp_no:"Non", rsvp_yes:"Oui",
+    rsvp_specify:"Si oui, merci de les préciser ici.", rsvp_submit:"Envoyer",
+    details_title:"Autres Détails",
+    det_directions_h:"Accès au lieu :", det_directions_p:"Pour ceux qui viennent en voiture, utilisez le code postal 09967 pour le GPS.<br><br>Un parking est disponible sur place.",
+    det_children_h:"Enfants :", det_children_p:"Cet événement est réservé aux adultes.<br>Merci de votre compréhension.",
+    det_transport_h:"Transports/Taxis :", det_transport_p:"Les transports en commun sont limités dans la zone, mais des taxis sont disponibles depuis la ville la plus proche.<br>Taxis locaux : Cabcompany : 01234567891.<br><br>Nous recommandons de réserver à l'avance.",
+    det_dress_h:"Code vestimentaire :", det_dress_p:"Nous vous demandons de porter une tenue cocktail ou semi-formelle.<br><br>Pour le cocktail de bienvenue, n'hésitez pas à opter pour des tons doux comme le rose, le jaune, l'orange, le bleu marine ou le bleu.",
+    hotels_title:"Où séjourner à proximité", hotel_book:"Réserver",
+    gifts_title:"cadeaux", gifts_p1:"Nous sommes très reconnaissants de votre amour et soutien pour célébrer notre mariage ! Si vous souhaitez nous honorer d'un cadeau, nous avons créé une liste pour faciliter les choses.",
+    gifts_p2:"Veuillez suivre le lien ci-dessous pour voir nos sélections et choisir ce qui vous convient.", gifts_btn:"Liste de cadeaux",
+    footer_text:"Si vous avez des questions<br>n'hésitez pas à nous contacter.<br>Nous avons hâte de fêter ça avec vous"
+  },
+  ua: {
+    nav_theday:"Цей День", nav_details:"Деталі", nav_hotels:"Готелі", nav_gifts:"Подарунки",
+    hero_subtitle:"одружуються!",
+    date_date:"26 червня", date_at:"в",
+    story_title:"Наш особливий день",
+    story_body:"Ми дуже раді святкувати цей особливий момент нашого життя з нашими найближчими рідними та друзями.<br>Ваша любов і підтримка означають для нас весь світ, і ми з нетерпінням чекаємо, щоб розділити цей незабутній день з вами.<br><br>Очікуючи на наш великий день, ми створили цей сайт, щоб тримати вас в курсі всіх деталей.<br><br>Дякуємо, що ви частина нашої історії.<br>Ми з нетерпінням чекаємо, щоб святкувати з вами!",
+    story_sign:"З любов'ю,",
+    theday_title:"Цей День",
+    tl_ceremony:"церемонія", tl_drinks:"коктейль", tl_dinner:"вечеря", tl_cake:"торт", tl_party:"вечірка", tl_party_time:"0:00", tl_hometime:"додому",
+    rsvp_deadline:"Будь ласка, дайте відповідь до 1 червня 2028.",
+    rsvp_names:"Ваші імена", rsvp_attending:"Чи будете ви присутні на нашому весіллі?",
+    rsvp_accept:"З радістю приймає", rsvp_decline:"На жаль, відмовляє",
+    rsvp_dietary:"Чи є у вас дієтичні обмеження?", rsvp_no:"Ні", rsvp_yes:"Так",
+    rsvp_specify:"Якщо так, будь ласка, вкажіть їх тут.", rsvp_submit:"Надіслати",
+    details_title:"Інші деталі",
+    det_directions_h:"Як дістатися:", det_directions_p:"Для тих, хто їде на автомобілі, використовуйте поштовий індекс 09967 для навігації.<br><br>Парковка доступна на місці.",
+    det_children_h:"Діти:", det_children_p:"Цей захід тільки для дорослих.<br>Дякуємо за розуміння.",
+    det_transport_h:"Транспорт/Таксі:", det_transport_p:"Громадський транспорт в цьому районі обмежений, але таксі з найближчого міста доступні.<br>Місцеве таксі: Cabcompany: 01234567891.<br><br>Рекомендуємо бронювати заздалегідь.",
+    det_dress_h:"Дрес-код:", det_dress_p:"Ми просимо гостей дотримуватися коктейльного або напівофіційного дрес-коду.<br><br>На вітальний коктейль не соромтеся обирати м'які тони: рожевий, жовтий, помаранчевий, темно-синій або блакитний.",
+    hotels_title:"Де зупинитися поблизу", hotel_book:"Забронювати",
+    gifts_title:"подарунки", gifts_p1:"Ми дуже вдячні за вашу любов і підтримку, коли ми святкуємо наше весілля! Якщо ви хочете подарувати нам подарунок, ми створили список, щоб полегшити вибір.",
+    gifts_p2:"Будь ласка, перейдіть за посиланням нижче, щоб переглянути наш вибір і обрати те, що вам підходить.", gifts_btn:"Список подарунків",
+    footer_text:"Якщо у вас є запитання<br>будь ласка, зв'яжіться з нами.<br>Ми з нетерпінням чекаємо, щоб святкувати з вами"
+  }
+};
+
+const langNames = { en: "EN", fr: "FR", ua: "UA" };
+
+function getLang() {
+  const p = new URLSearchParams(window.location.search);
+  const l = p.get('lang');
+  return (l && T[l]) ? l : 'en';
+}
+
+function setLang(lang) {
+  const url = new URL(window.location);
+  url.searchParams.set('lang', lang);
+  window.history.replaceState({}, '', url);
+  applyLang(lang);
+}
+
+function applyLang(lang) {
+  const t = T[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key]) el.innerHTML = t[key];
+  });
+  // Update lang button and dropdown
+  document.getElementById('langBtn').textContent = langNames[lang];
+  const drop = document.getElementById('langDrop');
+  drop.innerHTML = '';
+  Object.keys(langNames).filter(k => k !== lang).forEach(k => {
+    const a = document.createElement('a');
+    a.href = '#';
+    a.textContent = langNames[k];
+    a.addEventListener('click', e => { e.preventDefault(); drop.classList.remove('open'); setLang(k); });
+    drop.appendChild(a);
+  });
+}
+
+document.getElementById('langBtn').addEventListener('click', () => {
+  document.getElementById('langDrop').classList.toggle('open');
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('.lang-switcher')) document.getElementById('langDrop').classList.remove('open');
+});
+
+applyLang(getLang());
+</script>
 
 </body>
 </html>
