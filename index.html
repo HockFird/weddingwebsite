@@ -365,7 +365,6 @@
       gap: 40px 60px;
     }
     .detail-block { text-align: center; }
-    .detail-block.full-width { grid-column: 1 / -1; }
     .detail-block h3 {
       font-family: var(--serif); font-weight: 700;
       font-size: 16px; text-transform: uppercase;
@@ -374,17 +373,6 @@
     .detail-block p {
       font-family: var(--serif); font-size: 15px;
       line-height: 1.7; letter-spacing: 0.02em;
-    }
-    .detail-block ul {
-      list-style: none; padding: 0; margin: 8px 0 0;
-      font-family: var(--serif); font-size: 15px;
-      line-height: 1.7; text-align: left;
-    }
-    .detail-block ul ul { padding-left: 24px; margin: 4px 0; }
-    .detail-block li { margin-bottom: 4px; }
-    .detail-block .detail-divider {
-      width: 60px; height: 1px; background: var(--green);
-      margin: 32px auto; opacity: 0.3;
     }
 
     /* ─── HOTELS ─── */
@@ -542,7 +530,7 @@
     <div class="date-text">
       <div class="date-script">June 26th, 2027</div>
       <div class="date-at" data-i18n="date_at">at</div>
-      <div class="date-venue-name">our house La Fairelle,</div>
+      <div class="date-venue-name">La Fairelle,</div>
       <div class="date-venue-sub">in Saint-Tropez</div>
     </div>
   </div>
@@ -771,68 +759,30 @@
     <div class="details-grid">
 
       <div class="detail-block">
-        <h3>Ceremony Venue</h3>
-        <p>Eglise Notre-Dame-de-l'Assomption<br>de Saint-Tropez<br>83990 Saint-Tropez</p>
+        <h3>Ceremony</h3>
+        <p>Eglise Notre-Dame-de-l'Assomption<br>83990 Saint-Tropez</p>
       </div>
 
       <div class="detail-block">
-        <h3>Reception Venue &amp; Directions</h3>
-        <p>Villa La Fairelle<br>74 Chemin de Valfère<br>83990 Saint-Tropez</p>
-        <p style="margin-top:12px; font-size:14px;">Please note that parking on site is extremely limited. If you plan to drive your own car, please let us know in advance so we can organize parking spots. Shuttles will be provided for your convenience throughout the event.</p>
-      </div>
-
-      <div class="detail-block full-width">
-        <div class="detail-divider"></div>
-        <h3>How to Get to Saint-Tropez</h3>
+        <h3>Reception</h3>
+        <p>Villa La Fairelle<br>74 Chemin de Valfère, 83990 Saint-Tropez<br><br><em>Parking is very limited. Please let us know if you plan to drive. Shuttles will be provided.</em></p>
       </div>
 
       <div class="detail-block">
-        <h3>By Plane</h3>
-        <ul>
-          <li><strong>Toulon-Hyères (TLN):</strong> ~50 km (~1h)</li>
-          <li><strong>Nice Côte d'Azur (NCE):</strong> ~105 km (~1h30 to 2h)</li>
-          <li><strong>Marseille Provence (MRS):</strong> ~140 km (~2h)</li>
-        </ul>
+        <h3>Getting There</h3>
+        <p><strong>By Plane:</strong> Toulon (1h), Nice (1h30), Marseille (2h)<br>
+        <strong>By Train:</strong> Les Arcs TGV (50 min), Saint-Raphaël TGV (50 min or ferry)<br>
+        <strong>By Car:</strong> A8 motorway, Exit 13 or 36. Plan ahead for summer traffic.</p>
       </div>
 
       <div class="detail-block">
-        <h3>By Train</h3>
-        <ul>
-          <li><strong>Les Arcs - Draguignan TGV:</strong> ~40 km (~50 min)</li>
-          <li><strong>Saint-Raphaël TGV:</strong> ~38 km (~50 min, or ferry to Saint-Tropez)</li>
-          <li><strong>Nice-Ville TGV:</strong> ~110 km (~1h30 to 2h)</li>
-          <li><strong>Aix-en-Provence TGV:</strong> ~125 km (~1h30)</li>
-        </ul>
-      </div>
-
-      <div class="detail-block full-width">
-        <h3>By Car</h3>
-        <p>Accessible via the A8 motorway (Exit 13 Le Luc / Saint-Tropez or Exit 36 Saint-Raphaël).<br>Please plan ahead as summer traffic heading into Saint-Tropez can be dense.</p>
-      </div>
-
-      <div class="detail-block full-width">
-        <div class="detail-divider"></div>
-        <h3>Getting Around Town</h3>
-        <p>Saint-Tropez is best enjoyed on foot or on two wheels!</p>
-      </div>
-
-      <div class="detail-block">
-        <h3>Walking &amp; Scooter</h3>
-        <p>Walking is ideal within the village, and renting a scooter or vespa is the absolute best way to beat the summer traffic and move around easily.</p>
-      </div>
-
-      <div class="detail-block">
-        <h3>Cars &amp; Taxis</h3>
-        <p>Driving can be slow during peak summer hours. Local taxis and Ubers are available, but we strongly recommend booking in advance.</p>
-      </div>
-
-      <div class="detail-block full-width">
-        <div class="detail-divider"></div>
+        <h3>Getting Around</h3>
+        <p>Walking is ideal in the village. Renting a scooter is the best way to beat summer traffic. Taxis and Ubers are available but book in advance.</p>
       </div>
 
       <div class="detail-block">
         <h3>Dress Code</h3>
-        <p>Summer Cocktail / Summer Chic ✨<br><br>Nothing overly formal. We want you to be comfortable, but elegant! Since June in Saint-Tropez is warm and sunny, feel free to lean into light, breathable fabrics and soft, summer-friendly tones.</p>
+        <p>Summer Cocktail / Summer Chic ✨<br>Comfortable but elegant. Light fabrics and soft, summer-friendly tones.</p>
       </div>
 
       <div class="detail-block">
@@ -935,7 +885,7 @@ const T = {
     rsvp_deadline:"Saturday, June 26th 2027",
     rsvp_replyby:"Please reply by December 31st 2026",
     rsvp_firstname:"First name <span class=\"req\">*</span>", rsvp_lastname:"Last name <span class=\"req\">*</span>",
-    rsvp_address:"Your postal address",
+    rsvp_address:"Your postal address <span class=\"req\">*</span>",
     rsvp_attending:"Will you be attending our wedding? <span class=\"req\">*</span>",
     rsvp_accept:"Joyfully accept", rsvp_decline:"Regretfully decline",
     rsvp_brunch:"Will you be attending brunch on Sunday 27th? <span class=\"req\">*</span>",
@@ -964,7 +914,7 @@ const T = {
     rsvp_deadline:"Samedi 26 juin 2027",
     rsvp_replyby:"Merci de répondre avant le 31 décembre 2026",
     rsvp_firstname:"Prénom <span class=\"req\">*</span>", rsvp_lastname:"Nom <span class=\"req\">*</span>",
-    rsvp_address:"Votre adresse postale",
+    rsvp_address:"Votre adresse postale <span class=\"req\">*</span>",
     rsvp_attending:"Serez-vous présents à notre mariage ? <span class=\"req\">*</span>",
     rsvp_accept:"Accepte avec joie", rsvp_decline:"Décline avec regret",
     rsvp_brunch:"Serez-vous présents au brunch le dimanche 27 ? <span class=\"req\">*</span>",
@@ -993,7 +943,7 @@ const T = {
     rsvp_deadline:"Субота, 26 червня 2027",
     rsvp_replyby:"Будь ласка, дайте відповідь до 31/12/2026",
     rsvp_firstname:"Ім'я <span class=\"req\">*</span>", rsvp_lastname:"Прізвище <span class=\"req\">*</span>",
-    rsvp_address:"Ваша поштова адреса",
+    rsvp_address:"Ваша поштова адреса <span class=\"req\">*</span>",
     rsvp_attending:"Чи будете ви присутні на нашому весіллі? <span class=\"req\">*</span>",
     rsvp_accept:"З радістю приймає", rsvp_decline:"На жаль, відмовляє",
     rsvp_brunch:"Чи будете ви на бранчі в неділю 27-го? <span class=\"req\">*</span>",
