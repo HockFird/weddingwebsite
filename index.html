@@ -529,7 +529,7 @@
       <div class="date-photo"></div>
     </div>
     <div class="date-text">
-      <div class="date-script" data-i18n="date_date">June 26th</div>
+      <div class="date-script" data-i18n="date_date">June 26th, 2027</div>
       <div class="date-at" data-i18n="date_at">at</div>
       <div class="date-venue">Saint-Tropez</div>
     </div>
@@ -637,11 +637,11 @@
       <form action="#" method="POST">
         <div class="form-group form-row">
           <div class="form-half">
-            <span class="field-label" data-i18n="rsvp_firstname">First name</span>
+            <span class="field-label" data-i18n="rsvp_firstname">First name <span class="req">*</span></span>
             <input type="text" name="firstname" required>
           </div>
           <div class="form-half">
-            <span class="field-label" data-i18n="rsvp_lastname">Last name</span>
+            <span class="field-label" data-i18n="rsvp_lastname">Last name <span class="req">*</span></span>
             <input type="text" name="lastname" required>
           </div>
         </div>
@@ -666,8 +666,8 @@
         <div class="form-group">
           <span class="field-label" data-i18n="rsvp_dietary">Do you have any dietary requirements?</span>
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="dietary" value="no"> <span data-i18n="rsvp_no">No</span></label>
             <label class="radio-option"><input type="radio" name="dietary" value="yes"> <span data-i18n="rsvp_yes">Yes</span></label>
+            <label class="radio-option"><input type="radio" name="dietary" value="no"> <span data-i18n="rsvp_no">No</span></label>
           </div>
         </div>
         <div class="form-group dietary-slide" id="dietary-details">
@@ -904,7 +904,7 @@ const T = {
   en: {
     nav_theday:"The Day", nav_details:"Details", nav_hotels:"Hotels", nav_gifts:"Gifts",
     hero_subtitle:"are getting married!",
-    date_date:"June 26th", date_at:"at",
+    date_date:"June 26th, 2027", date_at:"at",
     story_title:"Our special day",
     story_body:"We are so excited to celebrate this special moment in our lives with our closest family and friends.<br>Your love and support means the world to us, and we can't wait to share this unforgettable day with you.<br><br>As we count down to our big day, we've created this website to keep you updated on all the details.<br><br>Thank you for being a part of our journey.<br>We can't wait to celebrate with you!",
     story_sign:"With love,",
@@ -912,7 +912,7 @@ const T = {
     tl_ceremony:"ceremony", tl_drinks:"drinks", tl_dinner:"dinner", tl_cake:"cake cutting", tl_party:"party", tl_party_time:"12AM", tl_hometime:"hometime",
     rsvp_deadline:"Saturday, June 26th 2027",
     rsvp_replyby:"Please reply by 31/12/2026",
-    rsvp_firstname:"First name", rsvp_lastname:"Last name",
+    rsvp_firstname:"First name <span class=\"req\">*</span>", rsvp_lastname:"Last name <span class=\"req\">*</span>",
     rsvp_address:"Your postal address",
     rsvp_attending:"Will you be attending our wedding? <span class=\"req\">*</span>",
     rsvp_accept:"Joyfully accepts", rsvp_decline:"Regretfully declines",
@@ -933,7 +933,7 @@ const T = {
   fr: {
     nav_theday:"Le Jour J", nav_details:"Détails", nav_hotels:"Hôtels", nav_gifts:"Cadeaux",
     hero_subtitle:"se marient !",
-    date_date:"26 juin", date_at:"à",
+    date_date:"26 juin 2027", date_at:"à",
     story_title:"Notre jour spécial",
     story_body:"Nous sommes très heureux de célébrer ce moment si spécial avec nos proches et amis les plus chers.<br>Votre amour et votre soutien comptent énormément pour nous, et nous avons hâte de partager cette journée inoubliable avec vous.<br><br>En attendant le grand jour, nous avons créé ce site pour vous tenir informés de tous les détails.<br><br>Merci de faire partie de notre histoire.<br>Nous avons hâte de fêter ça avec vous !",
     story_sign:"Avec amour,",
@@ -941,7 +941,7 @@ const T = {
     tl_ceremony:"cérémonie", tl_drinks:"cocktail", tl_dinner:"dîner", tl_cake:"gâteau", tl_party:"soirée", tl_party_time:"0h", tl_hometime:"départ",
     rsvp_deadline:"Samedi 26 juin 2027",
     rsvp_replyby:"Merci de répondre avant le 31/12/2026",
-    rsvp_firstname:"Prénom", rsvp_lastname:"Nom",
+    rsvp_firstname:"Prénom <span class=\"req\">*</span>", rsvp_lastname:"Nom <span class=\"req\">*</span>",
     rsvp_address:"Votre adresse postale",
     rsvp_attending:"Serez-vous présents à notre mariage ? <span class=\"req\">*</span>",
     rsvp_accept:"Accepte avec joie", rsvp_decline:"Décline avec regret",
@@ -962,7 +962,7 @@ const T = {
   ua: {
     nav_theday:"Цей День", nav_details:"Деталі", nav_hotels:"Готелі", nav_gifts:"Подарунки",
     hero_subtitle:"одружуються!",
-    date_date:"26 червня", date_at:"в",
+    date_date:"26 червня 2027", date_at:"в",
     story_title:"Наш особливий день",
     story_body:"Ми дуже раді святкувати цей особливий момент нашого життя з нашими найближчими рідними та друзями.<br>Ваша любов і підтримка означають для нас весь світ, і ми з нетерпінням чекаємо, щоб розділити цей незабутній день з вами.<br><br>Очікуючи на наш великий день, ми створили цей сайт, щоб тримати вас в курсі всіх деталей.<br><br>Дякуємо, що ви частина нашої історії.<br>Ми з нетерпінням чекаємо, щоб святкувати з вами!",
     story_sign:"З любов'ю,",
@@ -970,7 +970,7 @@ const T = {
     tl_ceremony:"церемонія", tl_drinks:"коктейль", tl_dinner:"вечеря", tl_cake:"торт", tl_party:"вечірка", tl_party_time:"0:00", tl_hometime:"додому",
     rsvp_deadline:"Субота, 26 червня 2027",
     rsvp_replyby:"Будь ласка, дайте відповідь до 31/12/2026",
-    rsvp_firstname:"Ім'я", rsvp_lastname:"Прізвище",
+    rsvp_firstname:"Ім'я <span class=\"req\">*</span>", rsvp_lastname:"Прізвище <span class=\"req\">*</span>",
     rsvp_address:"Ваша поштова адреса",
     rsvp_attending:"Чи будете ви присутні на нашому весіллі? <span class=\"req\">*</span>",
     rsvp_accept:"З радістю приймає", rsvp_decline:"На жаль, відмовляє",
