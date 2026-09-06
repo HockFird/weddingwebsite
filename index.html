@@ -220,7 +220,7 @@
       display: flex; min-height: 90vh;
     }
     .rsvp-left {
-      flex: 1; padding: 80px 60px;
+      flex: 1; padding: 50px 50px;
     }
     .rsvp-right {
       flex: 0 0 42%; position: relative; overflow: hidden;
@@ -235,44 +235,45 @@
     }
     .rsvp-title {
       font-family: var(--serif); font-weight: 300;
-      font-size: clamp(56px, 8vw, 96px);
+      font-size: clamp(48px, 7vw, 80px);
       color: var(--cream); margin-bottom: 8px;
     }
     .rsvp-deadline {
-      font-family: var(--serif); font-size: 26px;
+      font-family: var(--serif); font-size: 22px;
       color: var(--cream); letter-spacing: 0.03em;
-      margin-bottom: 8px; font-weight: 300;
+      margin-bottom: 4px; font-weight: 300;
     }
     .rsvp-reply-by {
-      font-family: var(--serif); font-size: 17px;
+      font-family: var(--serif); font-size: 15px;
       color: var(--cream); opacity: 0.8;
-      letter-spacing: 0.03em; margin-bottom: 36px;
+      letter-spacing: 0.03em; margin-bottom: 20px;
       font-style: italic;
     }
     .rsvp-form-card {
       background: var(--cream);
-      padding: 40px 50px;
+      padding: 30px 40px;
       max-width: 640px;
       border-radius: 8px 8px 0 0;
     }
-    .form-group { margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
     .form-row { display: flex; gap: 16px; }
     .form-half { flex: 1; }
     .form-group .field-label {
       display: block; font-family: var(--serif);
-      font-size: 21px; font-weight: 600;
-      margin-bottom: 14px; color: var(--green);
+      font-size: 17px; font-weight: 600;
+      margin-bottom: 8px; color: var(--green);
     }
+    .field-label .req { color: #c0392b; }
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group textarea {
       width: 100%;
-      padding: 16px 18px;
+      padding: 10px 14px;
       border: 1px solid rgba(66,84,64,0.25);
       border-radius: 6px;
       background: transparent;
       color: var(--green); font-family: var(--serif);
-      font-size: 18px; outline: none;
+      font-size: 15px; outline: none;
       transition: border-color 0.3s;
     }
     .form-group input[type="text"]:focus,
@@ -285,14 +286,14 @@
     .form-group textarea::placeholder {
       color: rgba(66,84,64,0.35);
     }
-    .radio-group { display: flex; flex-direction: column; gap: 10px; }
+    .radio-group { display: flex; gap: 8px; }
     .radio-option {
-      display: block; padding: 16px 20px;
+      display: block; flex: 1; padding: 12px 16px;
       background: rgba(66,84,64,0.1);
-      border-radius: 6px;
+      border-radius: 6px; text-align: center;
       color: var(--green); font-family: var(--serif);
-      font-size: 19px; cursor: pointer;
-      transition: background 0.2s;
+      font-size: 16px; cursor: pointer;
+      transition: background 0.2s, color 0.2s;
     }
     .radio-option:hover { background: rgba(66,84,64,0.16); }
     .radio-option.selected {
@@ -303,7 +304,7 @@
       position: absolute; opacity: 0; pointer-events: none;
     }
     .form-submit {
-      display: block; width: 100%; padding: 18px 48px;
+      display: block; width: 100%; padding: 14px 48px;
       background: var(--green); color: var(--cream);
       font-family: var(--serif); font-size: 17px;
       text-transform: uppercase; letter-spacing: 0.12em;
@@ -342,32 +343,32 @@
     }
 
     /* ─── DETAILS ─── */
-    #details { background: var(--cream); padding: 80px 40px; }
+    #details { background: var(--cream); padding: 50px 40px; }
     .details-inner { max-width: 1000px; margin: 0 auto; }
     .details-title {
       font-family: var(--script);
-      font-size: clamp(56px, 10vw, 110px);
-      text-align: right; margin-bottom: 60px;
+      font-size: clamp(44px, 8vw, 80px);
+      text-align: right; margin-bottom: 36px;
     }
     .details-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 50px 80px;
+      gap: 30px 60px;
     }
     .detail-block { text-align: center; }
     .detail-block h3 {
       font-family: var(--serif); font-weight: 700;
-      font-size: 20px; text-transform: uppercase;
-      letter-spacing: 0.08em; margin-bottom: 16px;
+      font-size: 17px; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 10px;
     }
     .detail-block p {
-      font-family: var(--serif); font-size: 20px;
-      line-height: 1.7; letter-spacing: 0.02em;
+      font-family: var(--serif); font-size: 16px;
+      line-height: 1.6; letter-spacing: 0.02em;
     }
     .color-dots {
-      display: flex; gap: 14px;
-      justify-content: center; margin-top: 24px;
+      display: flex; gap: 12px;
+      justify-content: center; margin-top: 16px;
     }
-    .color-dot { width: 40px; height: 40px; border-radius: 50%; }
+    .color-dot { width: 32px; height: 32px; border-radius: 50%; }
 
     /* ─── HOTELS ─── */
     #hotels {
@@ -635,14 +636,14 @@
           <input type="text" name="address" autocomplete="street-address">
         </div>
         <div class="form-group">
-          <span class="field-label" data-i18n="rsvp_attending">Will you be attending our wedding?</span>
+          <span class="field-label" data-i18n="rsvp_attending">Will you be attending our wedding? <span class="req">*</span></span>
           <div class="radio-group">
             <label class="radio-option"><input type="radio" name="attending" value="yes" required> <span data-i18n="rsvp_accept">Joyfully accepts</span></label>
             <label class="radio-option"><input type="radio" name="attending" value="no"> <span data-i18n="rsvp_decline">Regretfully declines</span></label>
           </div>
         </div>
         <div class="form-group">
-          <span class="field-label" data-i18n="rsvp_brunch">Will you be attending brunch on Sunday 27th?</span>
+          <span class="field-label" data-i18n="rsvp_brunch">Will you be attending brunch on Sunday 27th? <span class="req">*</span></span>
           <div class="radio-group">
             <label class="radio-option"><input type="radio" name="brunch" value="yes" required> <span data-i18n="rsvp_yes">Yes</span></label>
             <label class="radio-option"><input type="radio" name="brunch" value="no"> <span data-i18n="rsvp_no">No</span></label>
@@ -890,9 +891,9 @@ const T = {
     rsvp_replyby:"Please reply by 31/12/2026",
     rsvp_firstname:"First name", rsvp_lastname:"Last name",
     rsvp_address:"Your postal address",
-    rsvp_attending:"Will you be attending our wedding?",
+    rsvp_attending:"Will you be attending our wedding? <span class=\"req\">*</span>",
     rsvp_accept:"Joyfully accepts", rsvp_decline:"Regretfully declines",
-    rsvp_brunch:"Will you be attending brunch on Sunday 27th?",
+    rsvp_brunch:"Will you be attending brunch on Sunday 27th? <span class=\"req\">*</span>",
     rsvp_dietary:"Do you have any dietary requirements?", rsvp_no:"No", rsvp_yes:"Yes",
     rsvp_specify:"If yes, please specify them here.",
     rsvp_message:"A word for the couple", rsvp_submit:"Submit",
@@ -919,9 +920,9 @@ const T = {
     rsvp_replyby:"Merci de répondre avant le 31/12/2026",
     rsvp_firstname:"Prénom", rsvp_lastname:"Nom",
     rsvp_address:"Votre adresse postale",
-    rsvp_attending:"Serez-vous présents à notre mariage ?",
+    rsvp_attending:"Serez-vous présents à notre mariage ? <span class=\"req\">*</span>",
     rsvp_accept:"Accepte avec joie", rsvp_decline:"Décline avec regret",
-    rsvp_brunch:"Serez-vous présents au brunch le dimanche 27 ?",
+    rsvp_brunch:"Serez-vous présents au brunch le dimanche 27 ? <span class=\"req\">*</span>",
     rsvp_dietary:"Avez-vous des restrictions alimentaires ?", rsvp_no:"Non", rsvp_yes:"Oui",
     rsvp_specify:"Si oui, merci de les préciser ici.",
     rsvp_message:"Un mot pour les mariés", rsvp_submit:"Envoyer",
@@ -948,9 +949,9 @@ const T = {
     rsvp_replyby:"Будь ласка, дайте відповідь до 31/12/2026",
     rsvp_firstname:"Ім'я", rsvp_lastname:"Прізвище",
     rsvp_address:"Ваша поштова адреса",
-    rsvp_attending:"Чи будете ви присутні на нашому весіллі?",
+    rsvp_attending:"Чи будете ви присутні на нашому весіллі? <span class=\"req\">*</span>",
     rsvp_accept:"З радістю приймає", rsvp_decline:"На жаль, відмовляє",
-    rsvp_brunch:"Чи будете ви на бранчі в неділю 27-го?",
+    rsvp_brunch:"Чи будете ви на бранчі в неділю 27-го? <span class=\"req\">*</span>",
     rsvp_dietary:"Чи є у вас дієтичні обмеження?", rsvp_no:"Ні", rsvp_yes:"Так",
     rsvp_specify:"Якщо так, будь ласка, вкажіть їх тут.",
     rsvp_message:"Слово для молодят", rsvp_submit:"Надіслати",
