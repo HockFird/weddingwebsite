@@ -320,7 +320,7 @@
     }
     .dietary-slide.open {
       max-height: 200px; opacity: 1;
-      margin-bottom: 36px !important;
+      margin-bottom: 16px !important;
     }
     .rsvp-confirmation {
       text-align: center; padding: 40px 0;
@@ -460,6 +460,20 @@
       font-family: var(--script);
       font-size: clamp(32px, 5vw, 48px);
       color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .footer-phones {
+      font-family: var(--serif); font-size: 16px;
+      color: var(--cream); line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .footer-phones a {
+      color: var(--cream); text-decoration: none;
+    }
+    .footer-phones a:hover { text-decoration: underline; }
+    .footer-copy {
+      font-family: var(--serif); font-size: 13px;
+      color: var(--cream); opacity: 0.5;
     }
 
     /* ─── RESPONSIVE ─── */
@@ -669,6 +683,13 @@
     </div>
 
     <script>
+      // Prevent Enter key from submitting form
+      document.querySelector('form').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+        }
+      });
+
       // Highlight selected radio option
       document.querySelectorAll('.radio-option input[type="radio"]').forEach(r => {
         r.addEventListener('change', () => {
@@ -874,6 +895,11 @@
     We can't wait to celebrate with you
   </div>
   <div class="footer-names">Viktoriya &amp; Grégoire</div>
+  <div class="footer-phones">
+    Greg : <a href="tel:+33629855392">+33 6 29 85 53 92</a><br>
+    Vik : <a href="tel:+33621267367">+33 6 21 26 73 67</a>
+  </div>
+  <div class="footer-copy">&copy; 2027 Viktoriya &amp; Grégoire</div>
 </section>
 
 <script>
