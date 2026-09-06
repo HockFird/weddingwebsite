@@ -88,6 +88,8 @@
       font-family: var(--script);
       font-size: clamp(56px, 10vw, 140px);
       color: var(--cream); line-height: 1.1;
+      margin: 8px auto; display: block; text-align: center;
+      text-indent: 0; letter-spacing: 0;
     }
     .hero-subtitle {
       font-family: var(--serif); font-weight: 400;
@@ -123,11 +125,16 @@
       font-size: clamp(28px, 4vw, 52px);
       color: var(--green); margin: 4px 0;
     }
-    .date-venue {
-      font-family: var(--serif); font-weight: 400;
-      font-size: clamp(24px, 4vw, 48px);
-      text-transform: uppercase; letter-spacing: 0.04em;
-      color: var(--green);
+    .date-venue-name {
+      font-family: var(--script);
+      font-size: clamp(28px, 5vw, 52px);
+      color: var(--green); line-height: 1.1;
+    }
+    .date-venue-sub {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(18px, 3vw, 28px);
+      color: var(--green); font-style: italic;
+      letter-spacing: 0.04em; margin-top: 4px;
     }
 
     /* ─── OUR SPECIAL DAY ─── */
@@ -137,7 +144,7 @@
     }
     .story-bg {
       position: absolute; inset: 0;
-      background: url('photos/hero-bg.jpg') center/cover no-repeat;
+      background: url('photos/hero-special-day.jpg') center/cover no-repeat;
       opacity: 0.45;
     }
     .story-inner {
@@ -346,32 +353,39 @@
     }
 
     /* ─── DETAILS ─── */
-    #details { background: var(--cream); padding: 50px 40px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-    .details-inner { max-width: 1000px; margin: 0 auto; }
+    #details { background: var(--cream); padding: 80px 40px; }
+    .details-inner { max-width: 900px; margin: 0 auto; }
     .details-title {
       font-family: var(--script);
       font-size: clamp(44px, 8vw, 80px);
-      text-align: right; margin-bottom: 36px;
+      text-align: right; margin-bottom: 50px;
     }
     .details-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 30px 60px;
+      gap: 40px 60px;
     }
     .detail-block { text-align: center; }
+    .detail-block.full-width { grid-column: 1 / -1; }
     .detail-block h3 {
       font-family: var(--serif); font-weight: 700;
-      font-size: 17px; text-transform: uppercase;
-      letter-spacing: 0.08em; margin-bottom: 10px;
+      font-size: 16px; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 12px;
     }
     .detail-block p {
-      font-family: var(--serif); font-size: 16px;
-      line-height: 1.6; letter-spacing: 0.02em;
+      font-family: var(--serif); font-size: 15px;
+      line-height: 1.7; letter-spacing: 0.02em;
     }
-    .color-dots {
-      display: flex; gap: 12px;
-      justify-content: center; margin-top: 16px;
+    .detail-block ul {
+      list-style: none; padding: 0; margin: 8px 0 0;
+      font-family: var(--serif); font-size: 15px;
+      line-height: 1.7; text-align: left;
     }
-    .color-dot { width: 32px; height: 32px; border-radius: 50%; }
+    .detail-block ul ul { padding-left: 24px; margin: 4px 0; }
+    .detail-block li { margin-bottom: 4px; }
+    .detail-block .detail-divider {
+      width: 60px; height: 1px; background: var(--green);
+      margin: 32px auto; opacity: 0.3;
+    }
 
     /* ─── HOTELS ─── */
     #hotels {
@@ -380,7 +394,7 @@
     }
     .hotels-bg {
       position: absolute; inset: 0;
-      background: url('photos/hero-bg.jpg') center/cover no-repeat;
+      background: url('photos/hero-nearby.jpg') center/cover no-repeat;
       opacity: 0.4;
     }
     .hotels-inner {
@@ -526,9 +540,10 @@
       <div class="date-photo"></div>
     </div>
     <div class="date-text">
-      <div class="date-script" data-i18n="date_date">June 26th, 2027</div>
+      <div class="date-script">June 26th, 2027</div>
       <div class="date-at" data-i18n="date_at">at</div>
-      <div class="date-venue">Saint-Tropez</div>
+      <div class="date-venue-name">our house La Fairelle,</div>
+      <div class="date-venue-sub">in Saint-Tropez</div>
     </div>
   </div>
 </section>
@@ -539,7 +554,6 @@
   <div class="story-inner">
     <div class="story-box">
       <div class="story-title" data-i18n="story_title">Our special day</div>
-      <div class="story-heading">Viktoriya &amp; Grégoire</div>
       <div class="story-body" data-i18n="story_body">
         We are so excited to celebrate this special moment in our lives with
         our closest family and friends.<br>
@@ -562,24 +576,14 @@
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-icon">
-        <svg viewBox="0 0 80 80">
-          <ellipse cx="28" cy="42" rx="20" ry="14" transform="rotate(-15 28 42)"/>
-          <ellipse cx="52" cy="42" rx="20" ry="14" transform="rotate(15 52 42)"/>
-          <circle cx="40" cy="62" r="3"/>
-        </svg>
+        <img src="photos/ring.svg" alt="Ceremony">
       </div>
       <div class="timeline-time">4PM</div>
       <div class="timeline-label" data-i18n="tl_ceremony">ceremony</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-icon">
-        <svg viewBox="0 0 80 80">
-          <path d="M30 70 L30 40 Q30 20 40 10 Q50 20 50 40 L50 70"/>
-          <line x1="26" y1="70" x2="54" y2="70"/>
-          <path d="M36 40 Q32 36 34 30"/>
-          <path d="M38 14 Q36 8 38 4"/>
-          <path d="M42 14 Q44 8 42 4"/>
-        </svg>
+        <img src="photos/drinks.svg" alt="Drinks">
       </div>
       <div class="timeline-time">7PM</div>
       <div class="timeline-label" data-i18n="tl_drinks">drinks</div>
@@ -600,16 +604,7 @@
     </div>
     <div class="timeline-item">
       <div class="timeline-icon">
-        <svg viewBox="0 0 80 80">
-          <path d="M22 70 L22 40 Q22 20 32 12"/>
-          <path d="M58 70 L58 40 Q58 20 48 12"/>
-          <line x1="18" y1="70" x2="26" y2="70"/>
-          <line x1="54" y1="70" x2="62" y2="70"/>
-          <circle cx="36" cy="8" r="2"/><circle cx="44" cy="6" r="1.5"/>
-          <line x1="50" y1="14" x2="54" y2="10"/>
-          <line x1="56" y1="18" x2="60" y2="16"/>
-          <line x1="52" y1="8" x2="54" y2="4"/>
-        </svg>
+        <img src="photos/party.svg" alt="Party">
       </div>
       <div class="timeline-time" data-i18n="tl_party_time">12AM</div>
       <div class="timeline-label" data-i18n="tl_party">party</div>
@@ -629,7 +624,7 @@
   <div class="rsvp-left">
     <div class="rsvp-title">RSVP</div>
     <div class="rsvp-deadline" data-i18n="rsvp_deadline">Saturday, June 26th 2027</div>
-    <div class="rsvp-reply-by" data-i18n="rsvp_replyby">Please reply by 31/12/2026</div>
+    <div class="rsvp-reply-by" data-i18n="rsvp_replyby">Please reply by December 31st 2026</div>
     <div class="rsvp-form-card">
       <form action="#" method="POST">
         <div class="form-group form-row">
@@ -643,14 +638,14 @@
           </div>
         </div>
         <div class="form-group">
-          <span class="field-label" data-i18n="rsvp_address">Your postal address</span>
-          <input type="text" name="address" autocomplete="street-address">
+          <span class="field-label" data-i18n="rsvp_address">Your postal address <span class="req">*</span></span>
+          <input type="text" name="address" autocomplete="street-address" required>
         </div>
         <div class="form-group">
           <span class="field-label" data-i18n="rsvp_attending">Will you be attending our wedding? <span class="req">*</span></span>
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="attending" value="yes" required> <span data-i18n="rsvp_accept">Joyfully accepts</span></label>
-            <label class="radio-option"><input type="radio" name="attending" value="no"> <span data-i18n="rsvp_decline">Regretfully declines</span></label>
+            <label class="radio-option"><input type="radio" name="attending" value="yes" required> <span data-i18n="rsvp_accept">Joyfully accept</span></label>
+            <label class="radio-option"><input type="radio" name="attending" value="no"> <span data-i18n="rsvp_decline">Regretfully decline</span></label>
           </div>
         </div>
         <div class="form-group">
@@ -774,47 +769,77 @@
   <div class="details-inner">
     <div class="details-title" data-i18n="details_title">Other Details</div>
     <div class="details-grid">
+
       <div class="detail-block">
-        <h3 data-i18n="det_directions_h">Directions to venue:</h3>
-        <p data-i18n="det_directions_p">
-          For those driving to the venue, please use the
-          area code 09967 for directions on Google.<br><br>
-          Parking is available in site.
-        </p>
+        <h3>Ceremony Venue</h3>
+        <p>Eglise Notre-Dame-de-l'Assomption<br>de Saint-Tropez<br>83990 Saint-Tropez</p>
       </div>
+
       <div class="detail-block">
-        <h3 data-i18n="det_children_h">Children:</h3>
-        <p data-i18n="det_children_p">
-          This event is adults-only.<br>
-          We appreciate your understanding.
-        </p>
+        <h3>Reception Venue &amp; Directions</h3>
+        <p>Villa La Fairelle<br>74 Chemin de Valfère<br>83990 Saint-Tropez</p>
+        <p style="margin-top:12px; font-size:14px;">Please note that parking on site is extremely limited. If you plan to drive your own car, please let us know in advance so we can organize parking spots. Shuttles will be provided for your convenience throughout the event.</p>
       </div>
+
+      <div class="detail-block full-width">
+        <div class="detail-divider"></div>
+        <h3>How to Get to Saint-Tropez</h3>
+      </div>
+
       <div class="detail-block">
-        <h3 data-i18n="det_transport_h">Public Transport/Taxis:</h3>
-        <p data-i18n="det_transport_p">
-          Public transport is limited in the area,
-          but taxis from the nearest town are available.<br>
-          Local taxis: Cabcompany: 01234567891.<br><br>
-          We recommend booking in advance.
-        </p>
+        <h3>By Plane</h3>
+        <ul>
+          <li><strong>Toulon-Hyères (TLN):</strong> ~50 km (~1h)</li>
+          <li><strong>Nice Côte d'Azur (NCE):</strong> ~105 km (~1h30 to 2h)</li>
+          <li><strong>Marseille Provence (MRS):</strong> ~140 km (~2h)</li>
+        </ul>
       </div>
+
       <div class="detail-block">
-        <h3 data-i18n="det_dress_h">Dress Code:</h3>
-        <p data-i18n="det_dress_p">
-          We kindly ask guests to wear cocktail or
-          semi formal attire.<br><br>
-          For the welcome drinks, feel free to lean
-          into softer tones like pink, yellow, orange,
-          navy, or blue.
-        </p>
-        <div class="color-dots">
-          <span class="color-dot" style="background:#ddbaba"></span>
-          <span class="color-dot" style="background:#d4a978"></span>
-          <span class="color-dot" style="background:#e6d89f"></span>
-          <span class="color-dot" style="background:#020c45"></span>
-          <span class="color-dot" style="background:#8799b4"></span>
-        </div>
+        <h3>By Train</h3>
+        <ul>
+          <li><strong>Les Arcs - Draguignan TGV:</strong> ~40 km (~50 min)</li>
+          <li><strong>Saint-Raphaël TGV:</strong> ~38 km (~50 min, or ferry to Saint-Tropez)</li>
+          <li><strong>Nice-Ville TGV:</strong> ~110 km (~1h30 to 2h)</li>
+          <li><strong>Aix-en-Provence TGV:</strong> ~125 km (~1h30)</li>
+        </ul>
       </div>
+
+      <div class="detail-block full-width">
+        <h3>By Car</h3>
+        <p>Accessible via the A8 motorway (Exit 13 Le Luc / Saint-Tropez or Exit 36 Saint-Raphaël).<br>Please plan ahead as summer traffic heading into Saint-Tropez can be dense.</p>
+      </div>
+
+      <div class="detail-block full-width">
+        <div class="detail-divider"></div>
+        <h3>Getting Around Town</h3>
+        <p>Saint-Tropez is best enjoyed on foot or on two wheels!</p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Walking &amp; Scooter</h3>
+        <p>Walking is ideal within the village, and renting a scooter or vespa is the absolute best way to beat the summer traffic and move around easily.</p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Cars &amp; Taxis</h3>
+        <p>Driving can be slow during peak summer hours. Local taxis and Ubers are available, but we strongly recommend booking in advance.</p>
+      </div>
+
+      <div class="detail-block full-width">
+        <div class="detail-divider"></div>
+      </div>
+
+      <div class="detail-block">
+        <h3>Dress Code</h3>
+        <p>Summer Cocktail / Summer Chic ✨<br><br>Nothing overly formal. We want you to be comfortable, but elegant! Since June in Saint-Tropez is warm and sunny, feel free to lean into light, breathable fabrics and soft, summer-friendly tones.</p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Children</h3>
+        <p>This event is adults-only.<br>We appreciate your understanding.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -879,7 +904,7 @@
         Please follow the link below to view our selections and
         choose something that feels right for you.
       </p>
-      <a href="#" class="gifts-btn" data-i18n="gifts_btn">Gift Registry</a>
+      <a href="#" class="gifts-btn" data-i18n="gifts_btn" onclick="event.preventDefault()" style="opacity:0.6;cursor:default;">Coming Soon</a>
     </div>
   </div>
 </section>
@@ -908,11 +933,11 @@ const T = {
     theday_title:"The Day",
     tl_ceremony:"ceremony", tl_drinks:"drinks", tl_dinner:"dinner", tl_cake:"cake cutting", tl_party:"party", tl_party_time:"12AM", tl_hometime:"hometime",
     rsvp_deadline:"Saturday, June 26th 2027",
-    rsvp_replyby:"Please reply by 31/12/2026",
+    rsvp_replyby:"Please reply by December 31st 2026",
     rsvp_firstname:"First name <span class=\"req\">*</span>", rsvp_lastname:"Last name <span class=\"req\">*</span>",
     rsvp_address:"Your postal address",
     rsvp_attending:"Will you be attending our wedding? <span class=\"req\">*</span>",
-    rsvp_accept:"Joyfully accepts", rsvp_decline:"Regretfully declines",
+    rsvp_accept:"Joyfully accept", rsvp_decline:"Regretfully decline",
     rsvp_brunch:"Will you be attending brunch on Sunday 27th? <span class=\"req\">*</span>",
     rsvp_dietary:"Do you have any dietary requirements?", rsvp_no:"No", rsvp_yes:"Yes",
     rsvp_specify:"If yes, please specify them here.",
@@ -937,7 +962,7 @@ const T = {
     theday_title:"Le Jour J",
     tl_ceremony:"cérémonie", tl_drinks:"cocktail", tl_dinner:"dîner", tl_cake:"gâteau", tl_party:"soirée", tl_party_time:"0h", tl_hometime:"départ",
     rsvp_deadline:"Samedi 26 juin 2027",
-    rsvp_replyby:"Merci de répondre avant le 31/12/2026",
+    rsvp_replyby:"Merci de répondre avant le 31 décembre 2026",
     rsvp_firstname:"Prénom <span class=\"req\">*</span>", rsvp_lastname:"Nom <span class=\"req\">*</span>",
     rsvp_address:"Votre adresse postale",
     rsvp_attending:"Serez-vous présents à notre mariage ? <span class=\"req\">*</span>",
