@@ -627,10 +627,18 @@
           lang: new URLSearchParams(window.location.search).get('lang') || 'en'
         };
 
+        var params = new URLSearchParams();
+        params.append('names', data.names);
+        params.append('attending', data.attending);
+        params.append('dietary', data.dietary);
+        params.append('dietaryDetails', data.dietaryDetails);
+        params.append('lang', data.lang);
+
         fetch('https://script.google.com/macros/s/AKfycbx8UUaOY_US9Bgods2VCDfLfE0kXmlTYJOLNoV0kGr8eQAAzqTFrZHuRh4wcld88UXk/exec', {
           method: 'POST',
           mode: 'no-cors',
-          body: JSON.stringify(data)
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: params.toString()
         })
         .then(function() {
           btn.textContent = '✓';
