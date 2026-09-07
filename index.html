@@ -354,15 +354,15 @@
 
     /* ─── DETAILS ─── */
     #details { background: var(--cream); padding: 80px 40px; }
-    .details-inner { max-width: 900px; margin: 0 auto; }
+    .details-inner { max-width: 1100px; margin: 0 auto; }
     .details-title {
       font-family: var(--script);
       font-size: clamp(44px, 8vw, 80px);
       text-align: right; margin-bottom: 50px;
     }
     .details-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 40px 60px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 48px 40px;
     }
     .detail-block { text-align: center; }
     .detail-block h3 {
@@ -495,14 +495,14 @@
     @media (max-width: 900px) {
       .date-layout { flex-direction: column; gap: 40px; }
       .date-photo-frame { max-width: 80%; width: 360px; }
-      .details-grid { grid-template-columns: 1fr; gap: 40px; }
+      .details-grid { grid-template-columns: 1fr; gap: 36px; }
       .hotels-grid { grid-template-columns: 1fr; max-width: 360px; }
       #rsvp { flex-direction: column; }
       .rsvp-right { flex: 0 0 200px; }
     }
     @media (max-width: 600px) {
-      nav { padding: 16px 20px; gap: 18px; flex-wrap: wrap; }
-      nav a { font-size: 12px; }
+      nav { padding: 14px 16px; gap: 12px; flex-wrap: nowrap; align-items: center; }
+      nav a { font-size: 11px; white-space: nowrap; }
       .story-box { padding: 40px 28px; }
       .gifts-content { padding: 40px 24px; }
       .rsvp-left { padding: 60px 24px; }
