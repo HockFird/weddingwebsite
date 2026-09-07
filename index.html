@@ -429,7 +429,7 @@
       text-align: center; max-width: 700px;
       margin: 32px auto 0;
       font-style: italic;
-      background: rgba(66,84,64,0.7);
+      background: rgba(255,255,255,0.2);
       padding: 20px 28px;
       border-radius: 8px;
     }
@@ -522,7 +522,7 @@
   <a href="#rsvp">RSVP</a>
   <a href="#details" data-i18n="nav_details">Details</a>
   <a href="#hotels" data-i18n="nav_hotels">Hotels</a>
-  <a href="#gifts" data-i18n="nav_gifts">Gifts</a>
+  <a href="#gifts" data-i18n="nav_gifts">Wedding Registry</a>
   <div class="lang-switcher">
     <button class="lang-btn" id="langBtn">EN</button>
     <div class="lang-dropdown" id="langDrop"></div>
@@ -851,7 +851,7 @@
 <section id="gifts">
   <div class="gifts-frame">
     <div class="gifts-content">
-      <div class="gifts-title" data-i18n="gifts_title">gifts</div>
+      <div class="gifts-title" data-i18n="gifts_title">wedding registry</div>
       <p data-i18n="gifts_p1">
         We're so grateful for your love and support as we celebrate
         our wedding day! If you'd like to honor us with a gift, we've
@@ -884,7 +884,7 @@
 <script>
 const T = {
   en: {
-    nav_theday:"The Day", nav_details:"Details", nav_hotels:"Hotels", nav_gifts:"Gifts",
+    nav_theday:"The Day", nav_details:"Details", nav_hotels:"Hotels", nav_gifts:"Wedding Registry",
     hero_subtitle:"are getting married!",
     date_date:"June 26th, 2027", date_at:"at", date_venue:"La Fairelle,", date_loc:"in Saint-Tropez",
     story_title:"Our special day",
@@ -916,12 +916,12 @@ const T = {
     hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>A friendly holiday village offering a warm atmosphere and practical accommodations close to the beaches and venue.<br><br>A 5 min drive to the venue",
     hotel3_info:"We strongly advise considering Airbnb or local vacation rentals as early as possible! Saint-Tropez offers a wide variety of charming apartments in the village and villas nearby. Since June is a popular month, booking early will give you the best options and prices.",
     hotels_note:"Please note that these are just a few suggestions — there are plenty of other wonderful hotels and accommodations nearby! We highly recommend booking as far in advance as possible to secure the best rates and availability.",
-    gifts_title:"gifts", gifts_p1:"We're so grateful for your love and support as we celebrate our wedding day! If you'd like to honor us with a gift, we've created a registry to make things easier.",
-    gifts_p2:"Please follow the link below to view our selections and choose something that feels right for you.", gifts_btn:"Coming Soon",
+    gifts_title:"wedding registry", gifts_p1:"We're so grateful for your love and support as we celebrate our wedding day! If you'd like to honor us with a gift, we've created a registry to make things easier.",
+    gifts_p2:"Please follow the link below to view our selections and choose something that feels right for you.<br><br>Your presence by our side is the most beautiful gift of all.", gifts_btn:"Coming Soon",
     footer_text:"If you have any questions<br>please get in contact with us.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>We can't wait to celebrate with you"
   },
   fr: {
-    nav_theday:"Le Jour J", nav_details:"Détails", nav_hotels:"Hôtels", nav_gifts:"Cadeaux",
+    nav_theday:"Le Jour J", nav_details:"Détails", nav_hotels:"Hôtels", nav_gifts:"Liste de mariage",
     hero_subtitle:"se marient !",
     date_date:"26 juin 2027", date_at:"à", date_venue:"La Fairelle,", date_loc:"à Saint-Tropez",
     story_title:"Notre jour spécial",
@@ -953,12 +953,12 @@ const T = {
     hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Un village de vacances convivial offrant une ambiance chaleureuse et des hébergements pratiques à proximité des plages et du lieu.<br><br>À 5 min en voiture du lieu",
     hotel3_info:"Nous vous conseillons vivement de chercher un Airbnb ou une location de vacances le plus tôt possible ! Saint-Tropez offre une grande variété d'appartements charmants dans le village et de villas à proximité. Juin étant une période prisée, réserver tôt vous garantira les meilleurs choix et tarifs.",
     hotels_note:"Ce ne sont que quelques suggestions, il existe de nombreux autres hôtels et hébergements à proximité ! Nous vous recommandons vivement de réserver le plus tôt possible pour obtenir les meilleurs tarifs et disponibilités.",
-    gifts_title:"cadeaux", gifts_p1:"Nous sommes très reconnaissants de votre amour et soutien pour célébrer notre mariage ! Si vous souhaitez nous honorer d'un cadeau, nous avons créé une liste pour faciliter les choses.",
-    gifts_p2:"Veuillez suivre le lien ci-dessous pour voir nos sélections et choisir ce qui vous convient.", gifts_btn:"Bientôt disponible",
+    gifts_title:"liste de mariage", gifts_p1:"Nous sommes très reconnaissants de votre amour et soutien pour célébrer notre mariage ! Si vous souhaitez nous honorer d'un cadeau, nous avons créé une liste pour faciliter les choses.",
+    gifts_p2:"Veuillez suivre le lien ci-dessous pour voir nos sélections et choisir ce qui vous convient.<br><br>Votre présence à nos côtés reste le plus beau des cadeaux.", gifts_btn:"Bientôt disponible",
     footer_text:"Si vous avez des questions<br>n'hésitez pas à nous contacter.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Nous avons hâte de fêter ça avec vous"
   },
   ua: {
-    nav_theday:"Цей День", nav_details:"Деталі", nav_hotels:"Готелі", nav_gifts:"Подарунки",
+    nav_theday:"Цей День", nav_details:"Деталі", nav_hotels:"Готелі", nav_gifts:"Весільний список",
     hero_subtitle:"одружуються!",
     date_date:"26 червня 2027", date_at:"в", date_venue:"La Fairelle,", date_loc:"в Сен-Тропе",
     story_title:"Наш особливий день",
@@ -990,8 +990,8 @@ const T = {
     hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Затишне селище відпочинку з теплою атмосферою та зручним розташуванням поблизу пляжів і місця проведення.<br><br>5 хв на машині до місця",
     hotel3_info:"Ми наполегливо рекомендуємо розглянути Airbnb або місцеву оренду житла якомога раніше! Сен-Тропе пропонує великий вибір чарівних квартир у селі та вілл поблизу. Оскільки червень популярний місяць, раннє бронювання забезпечить найкращі варіанти та ціни.",
     hotels_note:"Зверніть увагу, що це лише кілька пропозицій. Поблизу є багато інших чудових готелів та варіантів проживання! Ми наполегливо рекомендуємо бронювати якомога раніше, щоб забезпечити найкращі ціни та наявність.",
-    gifts_title:"подарунки", gifts_p1:"Ми дуже вдячні за вашу любов і підтримку, коли ми святкуємо наше весілля! Якщо ви хочете подарувати нам подарунок, ми створили список, щоб полегшити вибір.",
-    gifts_p2:"Будь ласка, перейдіть за посиланням нижче, щоб переглянути наш вибір і обрати те, що вам підходить.", gifts_btn:"Незабаром",
+    gifts_title:"весільний список", gifts_p1:"Ми дуже вдячні за вашу любов і підтримку, коли ми святкуємо наше весілля! Якщо ви хочете подарувати нам подарунок, ми створили список, щоб полегшити вибір.",
+    gifts_p2:"Будь ласка, перейдіть за посиланням нижче, щоб переглянути наш вибір і обрати те, що вам підходить.<br><br>Ваша присутність поруч з нами — найкращий подарунок.", gifts_btn:"Незабаром",
     footer_text:"Якщо у вас є запитання<br>будь ласка, зв'яжіться з нами.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Ми з нетерпінням чекаємо, щоб святкувати з вами"
   }
 };
