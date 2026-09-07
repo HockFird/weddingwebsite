@@ -362,17 +362,19 @@
     }
     .details-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      grid-auto-flow: column;
       gap: 48px 40px;
     }
     .detail-block { text-align: center; }
     .detail-block h3 {
       font-family: var(--serif); font-weight: 700;
-      font-size: 16px; text-transform: uppercase;
-      letter-spacing: 0.08em; margin-bottom: 12px;
+      font-size: 18px; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 14px;
     }
     .detail-block p {
-      font-family: var(--serif); font-size: 15px;
-      line-height: 1.7; letter-spacing: 0.02em;
+      font-family: var(--serif); font-size: 17px;
+      line-height: 1.8; letter-spacing: 0.02em;
     }
 
     /* ─── HOTELS ─── */
@@ -424,13 +426,13 @@
     }
     .hotel-btn:hover { opacity: 0.85; }
     .hotels-note {
-      font-family: var(--serif); font-size: 15px;
-      color: var(--cream); line-height: 1.7;
+      font-family: var(--serif); font-size: 17px;
+      color: var(--cream); line-height: 1.8;
       text-align: center; max-width: 700px;
       margin: 32px auto 0;
       font-style: italic;
-      background: rgba(255,255,255,0.2);
-      padding: 20px 28px;
+      background: rgba(255,255,255,0.25);
+      padding: 24px 32px;
       border-radius: 8px;
     }
 
@@ -925,7 +927,7 @@ const T = {
     hero_subtitle:"se marient !",
     date_date:"26 juin 2027", date_at:"à", date_venue:"La Fairelle,", date_loc:"à Saint-Tropez",
     story_title:"Notre jour spécial",
-    story_body:"Nous sommes très heureux de célébrer ce moment si spécial avec nos proches et amis les plus chers.<br>Votre amour et votre soutien comptent énormément pour nous, et nous avons hâte de partager cette journée inoubliable avec vous.<br><br>En attendant le grand jour, nous avons créé ce site pour vous tenir informés de tous les détails.<br><br>Merci de faire partie de notre histoire.<br>Nous avons hâte de fêter ça avec vous !",
+    story_body:"Nous sommes très heureux de célébrer ce moment si spécial avec nos proches et amis les plus chers.<br><br>Votre amour et votre soutien comptent énormément pour nous, et nous avons hâte de partager cette journée inoubliable avec vous.<br><br>En attendant le grand jour, nous avons créé ce site pour vous tenir informés de tous les détails.<br><br>Merci de faire partie de notre histoire.<br>Nous avons hâte de fêter ça avec vous !",
     story_sign:"Avec amour,",
     theday_title:"Le Jour J",
     tl_ceremony:"cérémonie", tl_drinks:"cocktail", tl_dinner:"dîner", tl_cake:"gâteau", tl_party:"soirée", tl_party_time:"0h", tl_hometime:"départ",
@@ -953,7 +955,7 @@ const T = {
     hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Un village de vacances convivial offrant une ambiance chaleureuse et des hébergements pratiques à proximité des plages et du lieu.<br><br>À 5 min en voiture du lieu",
     hotel3_info:"Nous vous conseillons vivement de chercher un Airbnb ou une location de vacances le plus tôt possible ! Saint-Tropez offre une grande variété d'appartements charmants dans le village et de villas à proximité. Juin étant une période prisée, réserver tôt vous garantira les meilleurs choix et tarifs.",
     hotels_note:"Ce ne sont que quelques suggestions, il existe de nombreux autres hôtels et hébergements à proximité ! Nous vous recommandons vivement de réserver le plus tôt possible pour obtenir les meilleurs tarifs et disponibilités.",
-    gifts_title:"liste de mariage", gifts_p1:"Nous sommes très reconnaissants de votre amour et soutien pour célébrer notre mariage ! Si vous souhaitez nous honorer d'un cadeau, nous avons créé une liste pour faciliter les choses.",
+    gifts_title:"Liste de Mariage", gifts_p1:"Nous sommes très reconnaissants de votre amour et soutien pour célébrer notre mariage ! Si vous souhaitez nous honorer d'un cadeau, nous avons créé une liste pour faciliter les choses.",
     gifts_p2:"Veuillez suivre le lien ci-dessous pour voir nos sélections et choisir ce qui vous convient.<br><br>Votre présence à nos côtés reste le plus beau des cadeaux.", gifts_btn:"Bientôt disponible",
     footer_text:"Si vous avez des questions<br>n'hésitez pas à nous contacter.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Nous avons hâte de fêter ça avec vous"
   },
@@ -990,7 +992,7 @@ const T = {
     hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Затишне селище відпочинку з теплою атмосферою та зручним розташуванням поблизу пляжів і місця проведення.<br><br>5 хв на машині до місця",
     hotel3_info:"Ми наполегливо рекомендуємо розглянути Airbnb або місцеву оренду житла якомога раніше! Сен-Тропе пропонує великий вибір чарівних квартир у селі та вілл поблизу. Оскільки червень популярний місяць, раннє бронювання забезпечить найкращі варіанти та ціни.",
     hotels_note:"Зверніть увагу, що це лише кілька пропозицій. Поблизу є багато інших чудових готелів та варіантів проживання! Ми наполегливо рекомендуємо бронювати якомога раніше, щоб забезпечити найкращі ціни та наявність.",
-    gifts_title:"весільний список", gifts_p1:"Ми дуже вдячні за вашу любов і підтримку, коли ми святкуємо наше весілля! Якщо ви хочете подарувати нам подарунок, ми створили список, щоб полегшити вибір.",
+    gifts_title:"Весільний Список", gifts_p1:"Ми дуже вдячні за вашу любов і підтримку, коли ми святкуємо наше весілля! Якщо ви хочете подарувати нам подарунок, ми створили список, щоб полегшити вибір.",
     gifts_p2:"Будь ласка, перейдіть за посиланням нижче, щоб переглянути наш вибір і обрати те, що вам підходить.<br><br>Ваша присутність поруч з нами — найкращий подарунок.", gifts_btn:"Незабаром",
     footer_text:"Якщо у вас є запитання<br>будь ласка, зв'яжіться з нами.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Ми з нетерпінням чекаємо, щоб святкувати з вами"
   }
