@@ -423,6 +423,13 @@
       transition: opacity 0.3s;
     }
     .hotel-btn:hover { opacity: 0.85; }
+    .hotels-note {
+      font-family: var(--serif); font-size: 15px;
+      color: var(--cream); line-height: 1.7;
+      text-align: center; max-width: 700px;
+      margin: 32px auto 0; opacity: 0.8;
+      font-style: italic;
+    }
 
     /* ─── GIFTS ─── */
     #gifts { background: var(--cream); padding: 80px 40px; text-align: center; }
@@ -814,7 +821,7 @@
         <div class="hotel-info" data-i18n="hotel1_info">
           5 Rue des Remparts, 83990 Saint-Tropez<br><br>
           An iconic, historic boutique hotel nestled in the heart of the old village and right by the water, perfect for an authentic Tropezian experience.<br><br>
-          A 7 min drive / 20 min walk to the venue
+          A 10 min drive to the venue
         </div>
         <a href="https://laponche.com/" target="_blank" class="hotel-btn" data-i18n="hotel_book">Book here</a>
       </div>
@@ -823,7 +830,7 @@
         <div class="hotel-info" data-i18n="hotel2_info">
           130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>
           A friendly holiday village offering a warm atmosphere and practical accommodations close to the beaches and venue.<br><br>
-          A 5 min drive to the venue / 10 min by shuttle
+          A 5 min drive to the venue
         </div>
         <a href="https://louriou-vacances.com/" target="_blank" class="hotel-btn" data-i18n="hotel_book">Book here</a>
       </div>
@@ -835,10 +842,9 @@
         <a href="https://www.airbnb.fr/s/Saint~Tropez/homes?refinement_paths%5B%5D=%2Fhomes&place_id=ChIJR-cWgxTHzhIR37mELWMbKpE&location_bb=Qi0dtkDWu9lCLPq0QNP09w%3D%3D&acp_id=5d76cd9d-4536-41b5-9973-cd09fa584ebf&date_picker_type=calendar&checkin=2027-06-25&checkout=2027-06-27&search_type=autocomplete_click" target="_blank" class="hotel-btn" data-i18n="hotel_book">Book here</a>
       </div>
     </div>
+    <div class="hotels-note" data-i18n="hotels_note">Please note that these are just a few suggestions — there are plenty of other wonderful hotels and accommodations nearby! We highly recommend booking as far in advance as possible to secure the best rates and availability.</div>
   </div>
 </section>
-
-<!-- GIFTS -->
 <section id="gifts">
   <div class="gifts-frame">
     <div class="gifts-content">
@@ -903,9 +909,10 @@ const T = {
     det_dress_h:"Dress Code", det_dress_p:"Summer Cocktail / Summer Chic ✨<br>Comfortable but elegant. Light fabrics and soft, summer-friendly tones.",
     det_children_h:"Children", det_children_p:"This event is adults-only.<br>We appreciate your understanding.",
     hotels_title:"Where to Stay Nearby", hotel_book:"Book here",
-    hotel1_info:"5 Rue des Remparts, 83990 Saint-Tropez<br><br>An iconic, historic boutique hotel nestled in the heart of the old village and right by the water, perfect for an authentic Tropezian experience.<br><br>A 7 min drive / 20 min walk to the venue",
-    hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>A friendly holiday village offering a warm atmosphere and practical accommodations close to the beaches and venue.<br><br>A 5 min drive to the venue / 10 min by shuttle",
+    hotel1_info:"5 Rue des Remparts, 83990 Saint-Tropez<br><br>An iconic, historic boutique hotel nestled in the heart of the old village and right by the water, perfect for an authentic Tropezian experience.<br><br>A 10 min drive to the venue",
+    hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>A friendly holiday village offering a warm atmosphere and practical accommodations close to the beaches and venue.<br><br>A 5 min drive to the venue",
     hotel3_info:"We strongly advise considering Airbnb or local vacation rentals as early as possible! Saint-Tropez offers a wide variety of charming apartments in the village and villas nearby. Since June is a popular month, booking early will give you the best options and prices.",
+    hotels_note:"Please note that these are just a few suggestions — there are plenty of other wonderful hotels and accommodations nearby! We highly recommend booking as far in advance as possible to secure the best rates and availability.",
     gifts_title:"gifts", gifts_p1:"We're so grateful for your love and support as we celebrate our wedding day! If you'd like to honor us with a gift, we've created a registry to make things easier.",
     gifts_p2:"Please follow the link below to view our selections and choose something that feels right for you.", gifts_btn:"Coming Soon",
     footer_text:"If you have any questions<br>please get in contact with us.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>We can't wait to celebrate with you"
@@ -939,9 +946,10 @@ const T = {
     det_dress_h:"Code vestimentaire", det_dress_p:"Summer Cocktail / Summer Chic ✨<br>Confortable mais élégant. Tissus légers et tons doux, adaptés à l'été.",
     det_children_h:"Enfants", det_children_p:"Cet événement est réservé aux adultes.<br>Merci de votre compréhension.",
     hotels_title:"Où séjourner à proximité", hotel_book:"Réserver",
-    hotel1_info:"5 Rue des Remparts, 83990 Saint-Tropez<br><br>Un hôtel boutique iconique et historique niché au cœur du vieux village, au bord de l'eau. Parfait pour une expérience tropézienne authentique.<br><br>À 7 min en voiture / 20 min à pied du lieu",
-    hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Un village de vacances convivial offrant une ambiance chaleureuse et des hébergements pratiques à proximité des plages et du lieu.<br><br>À 5 min en voiture / 10 min en navette",
+    hotel1_info:"5 Rue des Remparts, 83990 Saint-Tropez<br><br>Un hôtel boutique iconique et historique niché au cœur du vieux village, au bord de l'eau. Parfait pour une expérience tropézienne authentique.<br><br>À 10 min en voiture du lieu",
+    hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Un village de vacances convivial offrant une ambiance chaleureuse et des hébergements pratiques à proximité des plages et du lieu.<br><br>À 5 min en voiture du lieu",
     hotel3_info:"Nous vous conseillons vivement de chercher un Airbnb ou une location de vacances le plus tôt possible ! Saint-Tropez offre une grande variété d'appartements charmants dans le village et de villas à proximité. Juin étant une période prisée, réserver tôt vous garantira les meilleurs choix et tarifs.",
+    hotels_note:"Ce ne sont que quelques suggestions, il existe de nombreux autres hôtels et hébergements à proximité ! Nous vous recommandons vivement de réserver le plus tôt possible pour obtenir les meilleurs tarifs et disponibilités.",
     gifts_title:"cadeaux", gifts_p1:"Nous sommes très reconnaissants de votre amour et soutien pour célébrer notre mariage ! Si vous souhaitez nous honorer d'un cadeau, nous avons créé une liste pour faciliter les choses.",
     gifts_p2:"Veuillez suivre le lien ci-dessous pour voir nos sélections et choisir ce qui vous convient.", gifts_btn:"Bientôt disponible",
     footer_text:"Si vous avez des questions<br>n'hésitez pas à nous contacter.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Nous avons hâte de fêter ça avec vous"
@@ -975,9 +983,10 @@ const T = {
     det_dress_h:"Дрес-код", det_dress_p:"Summer Cocktail / Summer Chic ✨<br>Комфортно, але елегантно. Легкі тканини та м'які літні тони.",
     det_children_h:"Діти", det_children_p:"Цей захід тільки для дорослих.<br>Дякуємо за розуміння.",
     hotels_title:"Де зупинитися поблизу", hotel_book:"Забронювати",
-    hotel1_info:"5 Rue des Remparts, 83990 Saint-Tropez<br><br>Іконічний історичний бутік-готель у серці старого села біля води. Ідеально для справжнього тропезького досвіду.<br><br>7 хв на машині / 20 хв пішки до місця",
-    hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Затишне селище відпочинку з теплою атмосферою та зручним розташуванням поблизу пляжів і місця проведення.<br><br>5 хв на машині / 10 хв на шатлі",
+    hotel1_info:"5 Rue des Remparts, 83990 Saint-Tropez<br><br>Іконічний історичний бутік-готель у серці старого села біля води. Ідеально для справжнього тропезького досвіду.<br><br>10 хв на машині до місця",
+    hotel2_info:"130 Chemin de la Moutte, 83990 Saint-Tropez<br><br>Затишне селище відпочинку з теплою атмосферою та зручним розташуванням поблизу пляжів і місця проведення.<br><br>5 хв на машині до місця",
     hotel3_info:"Ми наполегливо рекомендуємо розглянути Airbnb або місцеву оренду житла якомога раніше! Сен-Тропе пропонує великий вибір чарівних квартир у селі та вілл поблизу. Оскільки червень популярний місяць, раннє бронювання забезпечить найкращі варіанти та ціни.",
+    hotels_note:"Зверніть увагу, що це лише кілька пропозицій. Поблизу є багато інших чудових готелів та варіантів проживання! Ми наполегливо рекомендуємо бронювати якомога раніше, щоб забезпечити найкращі ціни та наявність.",
     gifts_title:"подарунки", gifts_p1:"Ми дуже вдячні за вашу любов і підтримку, коли ми святкуємо наше весілля! Якщо ви хочете подарувати нам подарунок, ми створили список, щоб полегшити вибір.",
     gifts_p2:"Будь ласка, перейдіть за посиланням нижче, щоб переглянути наш вибір і обрати те, що вам підходить.", gifts_btn:"Незабаром",
     footer_text:"Якщо у вас є запитання<br>будь ласка, зв'яжіться з нами.<br>Greg : <a href=\"tel:+33629855392\" style=\"color:var(--cream)\">+33 6 29 85 53 92</a> &amp; Vik : <a href=\"tel:+33621267367\" style=\"color:var(--cream)\">+33 6 21 26 73 67</a><br>Ми з нетерпінням чекаємо, щоб святкувати з вами"
