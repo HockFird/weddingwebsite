@@ -358,23 +358,30 @@
     .details-title {
       font-family: var(--script);
       font-size: clamp(44px, 8vw, 80px);
-      text-align: right; margin-bottom: 50px;
+      text-align: right; margin-bottom: 60px;
     }
     .details-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto auto;
       grid-auto-flow: column;
-      gap: 48px 40px;
+      gap: 60px 48px;
+      align-items: start;
     }
-    .detail-block { text-align: center; }
+    .detail-block {
+      text-align: center;
+      display: flex; flex-direction: column;
+      align-items: center;
+      padding: 0 12px;
+    }
     .detail-block h3 {
       font-family: var(--serif); font-weight: 700;
-      font-size: 18px; text-transform: uppercase;
-      letter-spacing: 0.08em; margin-bottom: 14px;
+      font-size: 17px; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 14px;
     }
     .detail-block p {
-      font-family: var(--serif); font-size: 17px;
+      font-family: var(--serif); font-size: 16px;
       line-height: 1.8; letter-spacing: 0.02em;
+      max-width: 300px;
     }
 
     /* ─── HOTELS ─── */
@@ -431,7 +438,7 @@
       text-align: center; max-width: 700px;
       margin: 32px auto 0;
       font-style: italic;
-      background: rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.45);
       padding: 24px 32px;
       border-radius: 8px;
     }
@@ -565,7 +572,7 @@
       <div class="story-title" data-i18n="story_title">Our special day</div>
       <div class="story-body" data-i18n="story_body">
         We are so excited to celebrate this special moment in our lives with
-        our closest family and friends.<br>
+        our closest family and friends.<br><br>
         Your love and support means the world to us,
         and we can't wait to share this unforgettable day with you.<br><br>
         As we count down to our big day,
@@ -890,7 +897,7 @@ const T = {
     hero_subtitle:"are getting married!",
     date_date:"June 26th, 2027", date_at:"at", date_venue:"La Fairelle,", date_loc:"in Saint-Tropez",
     story_title:"Our special day",
-    story_body:"We are so excited to celebrate this special moment in our lives with our closest family and friends.<br>Your love and support means the world to us, and we can't wait to share this unforgettable day with you.<br><br>As we count down to our big day, we've created this website to keep you updated on all the details.<br><br>Thank you for being a part of our journey.<br>We can't wait to celebrate with you!",
+    story_body:"We are so excited to celebrate this special moment in our lives with our closest family and friends.<br><br>Your love and support means the world to us, and we can't wait to share this unforgettable day with you.<br><br>As we count down to our big day, we've created this website to keep you updated on all the details.<br><br>Thank you for being a part of our journey.<br>We can't wait to celebrate with you!",
     story_sign:"With love,",
     theday_title:"The Day",
     tl_ceremony:"ceremony", tl_drinks:"drinks", tl_dinner:"dinner", tl_cake:"cake cutting", tl_party:"party", tl_party_time:"12AM", tl_hometime:"hometime",
@@ -964,7 +971,7 @@ const T = {
     hero_subtitle:"одружуються!",
     date_date:"26 червня 2027", date_at:"в", date_venue:"La Fairelle,", date_loc:"в Сен-Тропе",
     story_title:"Наш особливий день",
-    story_body:"Ми дуже раді святкувати цей особливий момент нашого життя з нашими найближчими рідними та друзями.<br>Ваша любов і підтримка означають для нас весь світ, і ми з нетерпінням чекаємо, щоб розділити цей незабутній день з вами.<br><br>Очікуючи на наш великий день, ми створили цей сайт, щоб тримати вас в курсі всіх деталей.<br><br>Дякуємо, що ви частина нашої історії.<br>Ми з нетерпінням чекаємо, щоб святкувати з вами!",
+    story_body:"Ми дуже раді святкувати цей особливий момент нашого життя з нашими найближчими рідними та друзями.<br><br>Ваша любов і підтримка означають для нас весь світ, і ми з нетерпінням чекаємо, щоб розділити цей незабутній день з вами.<br><br>Очікуючи на наш великий день, ми створили цей сайт, щоб тримати вас в курсі всіх деталей.<br><br>Дякуємо, що ви частина нашої історії.<br>Ми з нетерпінням чекаємо, щоб святкувати з вами!",
     story_sign:"З любов'ю,",
     theday_title:"Цей День",
     tl_ceremony:"церемонія", tl_drinks:"коктейль", tl_dinner:"вечеря", tl_cake:"торт", tl_party:"вечірка", tl_party_time:"0:00", tl_hometime:"додому",
